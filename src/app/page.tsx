@@ -61,7 +61,6 @@ export default function Home() {
         <section className="hero" ref={heroRef}>
           <div className="hero-grid">
             <div>
-              <span className="eyebrow">For families with kids 5–17</span>
               <h1>
                 Phone access earned, <em>not given.</em>
               </h1>
