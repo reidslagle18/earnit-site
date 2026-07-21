@@ -62,17 +62,29 @@ export function metaTrack(
   return eventId;
 }
 
-// Fire the signup-click Lead, then hand the visitor to the app with ad
-// attribution intact (fbclid + UTMs pass through so the app domain can set
-// _fbc and attribute CompleteRegistration/StartTrial back to the ad).
-export function trackSignupClick(signupUrl: string, placement: string): void {
+// Fire the download/signup-click Lead, then hand the visitor to the
+// destination with attribution intact:
+//  - App Store links get Apple's campaign param (ct) from utm_campaign so
+//    installs show up per-campaign in App Store Connect analytics.
+//  - Web links get fbclid + UTMs passed through so the app domain can set
+//    _fbc and attribute CompleteRegistration/StartTrial back to the ad.
+export function trackSignupClick(destinationUrl: string, placement: string): void {
   metaTrack("Lead", { content_name: "signup_click", content_category: placement });
 
-  const target = new URL(signupUrl);
+  const target = new URL(destinationUrl);
   const here = new URLSearchParams(window.location.search);
-  for (const key of ["fbclid", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
-    const v = here.get(key);
-    if (v) target.searchParams.set(key, v);
+
+  if (target.hostname === "apps.apple.com" || target.hostname === "itunes.apple.com") {
+    const campaign = here.get("utm_campaign");
+    if (campaign && !target.searchParams.has("ct")) {
+      target.searchParams.set("ct", campaign.slice(0, 40));
+      target.searchParams.set("mt", "8");
+    }
+  } else {
+    for (const key of ["fbclid", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+      const v = here.get(key);
+      if (v) target.searchParams.set(key, v);
+    }
   }
 
   // Small delay lets the pixel's own network call get out the door.
