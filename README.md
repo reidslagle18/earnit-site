@@ -13,10 +13,11 @@ Meta (Facebook) Pixel + Conversions API tracking built in.
 | iOS trial starts | `StartTrial` | EarnIt app backend (CAPI) |
 | Trial survives 7 days | `Subscribe` | EarnIt app backend (CAPI) |
 
-CTAs point to the App Store once `NEXT_PUBLIC_APP_STORE_URL` is set (Apple
-campaign `ct` param carried from `utm_campaign` for App Store Connect
-attribution); until then they fall back to web signup, passing `fbclid` and
-`utm_*` through so late events attribute back to the ad click.
+Every CTA fires the `Lead` then sends people to the App Store listing
+([EarnIt: Kids earn screen time](https://apps.apple.com/us/app/earnit-kids-earn-screen-time/id6788894863)),
+carrying Apple's campaign `ct` param from `utm_campaign` so installs show up
+per-campaign in App Store Connect analytics. Override the destination with
+`NEXT_PUBLIC_APP_STORE_URL`.
 
 ## Setup
 

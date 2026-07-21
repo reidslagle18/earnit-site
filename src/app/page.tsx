@@ -3,13 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { trackSignupClick } from "@/lib/meta";
 
-// CTAs send people to the App Store once NEXT_PUBLIC_APP_STORE_URL is set
-// (the app isn't published yet); until then they fall back to web signup so
-// the buttons never dead-end.
+// Every CTA sends people to the App Store to download and subscribe.
 const SIGNUP_URL =
   process.env.NEXT_PUBLIC_APP_STORE_URL ||
-  process.env.NEXT_PUBLIC_SIGNUP_URL ||
-  "https://parentalcontrol-one.vercel.app/signup";
+  "https://apps.apple.com/us/app/earnit-kids-earn-screen-time/id6788894863";
 
 function Cta({
   placement,
