@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://earnit-site.vercel.app"),
   title: "EarnIt — Phone access earned, not given",
   description:
-    "EarnIt locks your child's screen time behind real-world tasks. Kids prove chores with photos and timers, AI verifies, parents approve. Free to start — no credit card.",
+    "EarnIt locks your child's screen time behind real-world tasks. Kids prove chores with photos and timers, AI verifies, parents approve. First week free.",
   openGraph: {
     title: "EarnIt — Phone access earned, not given",
     description:
-      "Screen time your kids earn with real chores, verified with photo proof. Free to start.",
+      "Screen time your kids earn with real chores, verified with photo proof. First week free.",
     siteName: "EarnIt",
     type: "website",
   },

@@ -9,7 +9,7 @@ const SIGNUP_URL =
 function Cta({
   placement,
   large,
-  label = "Start free — no credit card",
+  label = "Start your free week",
 }: {
   placement: string;
   large?: boolean;
@@ -52,7 +52,7 @@ export default function Home() {
           <a href="/" className="wordmark">
             Earn<em>It</em>
           </a>
-          <Cta placement="header" label="Start free" />
+          <Cta placement="header" label="Get started" />
         </header>
 
         {/* ── Hero ── */}
@@ -71,7 +71,8 @@ export default function Home() {
               <div className="hero-cta">
                 <Cta placement="hero" large />
                 <p className="cta-note">
-                  <strong>Free plan, forever.</strong> Set up in 5 minutes · Cancel anytime
+                  <strong>First 7 days free.</strong> We&rsquo;ll remind you before your trial
+                  ends · Cancel in two taps
                 </p>
               </div>
             </div>
@@ -106,10 +107,11 @@ export default function Home() {
       <div className="stat-band">
         <div className="wrap">
           <p className="big">
-            The average American teen spends <em>8½ hours a day</em> on entertainment
-            screens. Arguing about it doesn&rsquo;t work. <em>Incentives do.</em>
+            Kids average <em>5½ hours of screen time a day</em> before they&rsquo;re even
+            teenagers — and 8½ by high school. Arguing about it doesn&rsquo;t work.{" "}
+            <em>Incentives do.</em>
           </p>
-          <p className="src">Common Sense Media census of teen media use</p>
+          <p className="src">Common Sense Media census of media use, ages 8–18</p>
         </div>
       </div>
 
@@ -259,40 +261,44 @@ export default function Home() {
         <section id="pricing">
           <div className="section-head">
             <span className="eyebrow">Pricing</span>
-            <h2>Start free. Upgrade if it works.</h2>
+            <h2>Your first week is free.</h2>
+            <p>
+              Pick a plan and try everything free for 7 days. You won&rsquo;t be charged
+              until the trial ends — we&rsquo;ll remind you the day before — and canceling
+              takes two taps.
+            </p>
           </div>
           <div className="plans">
             <div className="plan">
-              <span className="name">Free</span>
+              <span className="name">Monthly</span>
               <div className="price">
-                $0 <span>forever</span>
+                $9.99 <span>/ month after your free week</span>
               </div>
               <ul>
-                <li>Up to 2 kids</li>
-                <li>5 tasks per kid</li>
-                <li>Photo &amp; timer proof</li>
+                <li>Unlimited kids &amp; tasks</li>
                 <li>Real app locking</li>
+                <li>Photo &amp; timer proof</li>
+                <li>AI auto-verify</li>
                 <li>Parent dashboard</li>
               </ul>
-              <Cta placement="pricing_free" label="Start free" />
+              <Cta placement="pricing_monthly" label="Start my free week" />
+              <p className="trial-note">7 days free, then $9.99/month · cancel anytime</p>
             </div>
             <div className="plan featured">
-              <span className="name">Premium</span>
+              <span className="name">Annual</span>
               <div className="price">
-                $9.99 <span>/ month</span>
+                $89.99 <span>/ year after your free week</span>
               </div>
-              <div className="anchor">or $89.99/year — about 25¢ a day</div>
+              <div className="anchor">About 25¢ a day — save 25% vs monthly</div>
               <ul>
-                <li>Unlimited kids</li>
-                <li>Unlimited tasks</li>
+                <li>Unlimited kids &amp; tasks</li>
+                <li>Real app locking</li>
+                <li>Photo &amp; timer proof</li>
                 <li>AI auto-verify</li>
-                <li>Advanced schedules &amp; routines</li>
-                <li>Priority support</li>
+                <li>Parent dashboard</li>
               </ul>
-              <Cta placement="pricing_premium" label="Try Premium free for 7 days" />
-              <p className="trial-note">
-                7 days free · no charge until the trial ends · cancel in two taps
-              </p>
+              <Cta placement="pricing_annual" label="Start my free week" />
+              <p className="trial-note">7 days free, then $89.99/year · cancel anytime</p>
             </div>
           </div>
         </section>
@@ -341,9 +347,19 @@ export default function Home() {
             <details>
               <summary>What does it cost?</summary>
               <p>
-                The free plan (2 kids, 5 tasks each) is free forever — no credit card to
-                start. Premium is $9.99/month or $89.99/year with a 7-day free trial, and
-                you can cancel anytime from your Apple subscription settings.
+                $9.99/month or $89.99/year — about 25¢ a day — and every plan starts with
+                a full week free. You won&rsquo;t be charged until the trial ends, we
+                remind you the day before, and you can cancel in two taps from your
+                subscription settings.
+              </p>
+            </details>
+            <details>
+              <summary>What happens after the free week?</summary>
+              <p>
+                If EarnIt is working for your family, do nothing — your plan starts
+                automatically. If it&rsquo;s not, cancel before the week is up and you pay
+                nothing. We send a reminder the day before your trial ends so there are no
+                surprise charges.
               </p>
             </details>
             <details>
@@ -366,7 +382,7 @@ export default function Home() {
           </h2>
           <Cta placement="final" large />
           <p className="cta-note" style={{ color: "rgba(244,241,235,0.6)" }}>
-            Free plan forever · No credit card · 5-minute setup
+            First week free · Cancel anytime · 5-minute setup
           </p>
         </div>
       </div>
