@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=block" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f2f1ec; --ink: #16201c; --muted: #5c655f; --faint: rgba(22,32,28,.42);
+    --em: #0a5240; --sms: #2f9e6b;
+    --disp: "Fraunces", Georgia, serif;
+    --ui: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body { background: var(--paper); font-family: var(--ui); position: relative; }
+
+  /* ── type band ── */
+  .band { position: absolute; left: 0; top: 0; width: 1080px; height: 462px; z-index: 3; }
+  .mark {
+    position: absolute; left: 66px; top: 56px;
+    font-family: var(--disp); font-weight: 600; font-size: 31px;
+    letter-spacing: -.015em; color: var(--em);
+  }
+  .mark span { opacity: .5; }
+  h1 {
+    position: absolute; left: 66px; top: 142px; width: 940px;
+    font-family: var(--disp); font-weight: 600; font-size: 74px; line-height: 1.03;
+    letter-spacing: -.022em; color: var(--ink);
+  }
+  h1 em { font-style: normal; color: var(--em); }
+  .sub {
+    position: absolute; left: 66px; top: 384px; width: 900px;
+    font-size: 25px; color: var(--muted);
+  }
+
+  /* ── photograph ── */
+  .photo {
+    position: absolute; left: 0; top: 462px; width: 1080px; height: 888px; overflow: hidden; z-index: 1;
+    background-image: url("plate.png");
+    background-size: 1080px auto;   /* 960 -> 1080 = 1.125x */
+    background-position: 0 0;
+    background-repeat: no-repeat;
+  }
+  /* seat the photo against the band */
+  .photo::after {
+    content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 54px;
+    background: linear-gradient(180deg, rgba(242,241,236,.85) 0%, rgba(242,241,236,0) 100%);
+  }
+
+  /* ── the screen: plate screen box (200,96)-(722,1108) x1.125, offset by band ── */
+  .screen {
+    position: absolute; z-index: 2; overflow: hidden;
+    left: 231px;                 /* 200 * 1.125, nudged to seat between the bezels */
+    top: 570px;                  /* 96 * 1.125 + 462 */
+    width: 583px;                /* 522 * 1.125 */
+    height: 780px;               /* cropped by the frame */
+    border-radius: 46px 46px 0 0;
+    background: #fbfbfa;
+  }
+  /* glass: a faint cool sheen so it reads as a lit screen, not a pasted rectangle */
+  .screen .sheen {
+    position: absolute; inset: 0; z-index: 5; pointer-events: none;
+    background:
+      linear-gradient(158deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 34%),
+      linear-gradient(200deg, rgba(150,170,180,.14) 0%, rgba(150,170,180,0) 46%);
+  }
+  .screen .vign {
+    position: absolute; inset: 0; z-index: 6; pointer-events: none;
+    box-shadow: inset 0 0 26px rgba(20,30,26,.20), inset 0 2px 0 rgba(255,255,255,.5);
+    border-radius: 46px 46px 0 0;
+  }
+
+  .statusbar {
+    height: 62px; display: flex; align-items: flex-end; justify-content: space-between;
+    padding: 0 34px 4px; font-size: 20px; font-weight: 600; color: var(--ink);
+  }
+  .bars { display: flex; align-items: center; gap: 5px; }
+  .bars i { display: block; width: 4px; background: var(--ink); border-radius: 1px; }
+  .bars i:nth-child(1){height:6px} .bars i:nth-child(2){height:9px}
+  .bars i:nth-child(3){height:12px} .bars i:nth-child(4){height:15px}
+  .batt { width: 28px; height: 14px; border: 2px solid var(--ink); border-radius: 4px; position: relative; }
+  .batt::after { content:""; position:absolute; inset:2px; right:10px; background:var(--ink); border-radius:1px; }
+
+  .nav {
+    padding: 8px 0 12px; border-bottom: 1px solid rgba(22,32,28,.10);
+    display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative;
+  }
+  .nav .av {
+    width: 52px; height: 52px; border-radius: 50%; background: #dedcd6;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 21px; font-weight: 600; color: #7d847f;
+  }
+  .nav .nm { font-size: 19px; font-weight: 500; color: var(--ink); }
+  .nav .chev {
+    position: absolute; left: 26px; top: 26px; width: 13px; height: 13px;
+    border-left: 3px solid var(--sms); border-bottom: 3px solid var(--sms);
+    transform: rotate(45deg);
+  }
+
+  .msgs { padding: 26px 24px 0; display: flex; flex-direction: column; }
+  .day { text-align: center; font-size: 16px; color: rgba(22,32,28,.42); margin-bottom: 18px; }
+  .m {
+    align-self: flex-end; max-width: 80%; background: var(--sms); color: #fff;
+    border-radius: 24px; padding: 15px 22px; font-size: 25px; line-height: 1.28;
+  }
+  .m.tail { border-bottom-right-radius: 8px; }
+  .ts { align-self: center; font-size: 16px; color: rgba(22,32,28,.4); margin: 14px 0; }
+  .rcpt { align-self: flex-end; font-size: 16px; color: rgba(22,32,28,.44); margin-top: 12px; }
+
+  /* composer pinned to the bottom of the glass so the screen doesn't read as half-empty */
+  .composer {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+    padding: 18px 24px 30px; display: flex; align-items: center; gap: 14px;
+    background: rgba(251,251,250,.97); border-top: 1px solid rgba(22,32,28,.09);
+  }
+  .composer .plus { font-size: 30px; color: rgba(22,32,28,.32); line-height: 1; }
+  .composer .fieldy {
+    flex: 1; height: 48px; border: 1.5px solid rgba(22,32,28,.16); border-radius: 24px;
+  }
+  .homebar {
+    position: absolute; left: 50%; transform: translateX(-50%); bottom: 10px; z-index: 5;
+    width: 132px; height: 5px; border-radius: 3px; background: rgba(22,32,28,.28);
+  }
+</style>
+</head>
+<body>
+  <div class="band">
+    <div class="mark">Earn<span>It</span></div>
+    <h1>You&rsquo;re not competing with laziness. <em>You&rsquo;re competing with a phone.</em></h1>
+    <p class="sub">EarnIt locks the games until the trash is actually out.</p>
+  </div>
+
+  <div class="photo"></div>
+
+  <div class="screen">
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="bars"><i></i><i></i><i></i><i></i><span class="batt"></span></span>
+    </div>
+    <div class="nav">
+      <span class="chev"></span>
+      <span class="av">M</span>
+      <span class="nm">Mason</span>
+    </div>
+    <div class="msgs">
+      <div class="day">Today</div>
+      <div class="m">can you take the trash out</div>
+      <div class="ts">6:02 PM</div>
+      <div class="m">trash?</div>
+      <div class="ts">7:19 PM</div>
+      <div class="m tail">hello</div>
+      <div class="rcpt">Delivered &middot; not read</div>
+    </div>
+    <div class="composer"><span class="plus">+</span><span class="fieldy"></span></div>
+    <div class="homebar"></div>
+    <div class="sheen"></div>
+    <div class="vign"></div>
+  </div>
+</body>
+</html>
