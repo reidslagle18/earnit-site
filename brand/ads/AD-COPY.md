@@ -104,6 +104,33 @@ From Motion's 2026 benchmark ($1.29B Meta spend, 578,750 creatives):
 - **Fatigue:** at frequency 4, CTR falls ~23% and CPC rises ~68%. Refresh when
   frequency passes 2.5–3.0, typically every 7–14 days.
 
+## Nobody makes new art for every ad
+
+Firsthand review of ~90 live statics from monday.com, Grammarly, ClickUp,
+Notion, Asana, Squarespace, Slack, Miro and Airtable found the same production
+trick everywhere: **hold one creative body constant and permute a single
+variable.** monday.com does it six ways — swap the background color with the
+layout pixel-identical, swap light for dark, port to another aspect ratio, swap
+the headline on a frozen body, swap the competitor's logo, mirror left to
+right. ClickUp runs identical copy over near-identical desk photos with only
+the ambient lighting color changed. Notion serves one byte-identical image
+across six ad IDs.
+
+For us that means one photo setup with three different handwritten Post-its is
+not a shortcut, it is the professional method.
+
+**Free competitive intel:** an ad still running after 90+ days is almost
+certainly profitable. Open the Meta Ad Library, scope it to a competitor's
+advertiser page, and sort by how long each ad has been live — the old ones are
+their proven winners. Two filter traps: use `media_type=image_and_meme` (plain
+`image` silently returns nothing) and scope by `view_all_page_id`, because
+keyword search matches other advertisers' body copy.
+
+**One more argument against AI imagery:** measured 2026 data shows AI-generated
+creative gets +12% CTR and −15% CPC, but **−18% conversion on lead gen and −17%
+premium perception once viewers notice it is AI.** It buys clicks and loses
+customers.
+
 Format hit rates from the same dataset, highest first: text-only **11.6%**,
 product image plus text **8.75%**, lifestyle product **7.59%**, UGC **7.56%**,
 high production **6.87%**. Motion's own summary: the best-performing formats
