@@ -1,5 +1,11 @@
 # EarnIt image prompts
 
+> **Using Midjourney?** Skip to [Midjourney versions](#midjourney-versions-paste-these-as-is)
+> at the bottom. The prose prompts in the middle of this file are tuned for
+> ChatGPT, Gemini and Firefly, which read full sentences well. Midjourney
+> weights the front of a prompt and drops trailing detail, so it wants tight
+> comma-separated phrases instead.
+
 Copy-paste prompts for Midjourney, ChatGPT/DALL·E, Gemini, Firefly, Freepik or
 Ideogram. Generate the scenes, send me the files, and I'll composite the
 headlines, handwriting and product UI on top.
@@ -139,3 +145,73 @@ where, or attach them in chat.
   format that captures 29% of Meta static spend.
 - **Scene 10** becomes the before/after pair.
 - **Scenes 8, 9** become the human-presence versions without the AI-face risk.
+
+---
+
+# Midjourney versions — paste these as is
+
+In Discord type `/imagine prompt:` then paste. On the web, paste into the
+imagine bar. Everything after `--` is a parameter and must stay at the end.
+
+Two notes. I've left `--v` off deliberately so it uses whatever version your
+account defaults to; add `--v 7` only if you want to pin it. And `--no people`
+is more reliable than trying to exclude faces — better to leave humans out of
+the description entirely than to ask for them and then negate them.
+
+**1. Made bed**
+```
+neatly made bed in a child's bedroom, white cotton duvet pulled straight, one slightly dented pillow, small wooden nightstand with a lamp and a closed book, long rectangle of warm morning sunlight falling across the bedding, shot from the foot of the bed slightly above, 35mm f/2, natural window light, fine film grain, muted desaturated warm palette, documentary interior photograph --ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration, 3d render
+```
+
+**2. Phone face-down on a nightstand**
+```
+smartphone lying face-down on a wooden nightstand beside a small lit lamp, quiet bedroom at dusk, bed softly out of focus behind, warm lamplight, shallow depth of field, 50mm f/1.8, calm end-of-day mood, fine film grain --ar 4:5 --style raw --no text, watermark, logo, people, screen glow, cartoon, illustration, 3d render
+```
+
+**3. Blank Post-it on a phone (the lead ad)**
+```
+smartphone propped upright on a kitchen counter, plain blank light grey screen, blank neon green sticky note stuck slightly crooked on the screen, one corner curling, coffee mug and car keys blurred beside it, morning window light, handheld slightly tilted angle at standing height, 35mm f/2, candid unstyled snapshot, fine film grain --ar 4:5 --style raw --no text, handwriting, letters, watermark, logo, people, cartoon, illustration, 3d render
+```
+
+**4. Cleared kitchen counter**
+```
+freshly wiped clean kitchen counter photographed at a low angle along its length, folded dish towel, empty fruit bowl, a few water droplets catching the light, bright late morning daylight from a window on the right, warm wood and pale stone, ordinary family kitchen, 35mm f/2.8, fine film grain --ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration, 3d render
+```
+
+**5. Dishwasher loaded neatly**
+```
+open dishwasher in a family kitchen neatly loaded with everyday plates and glasses, viewed from standing height looking down, daylight from a nearby window, slightly worn cabinets, real lived-in kitchen, 35mm f/2.8, fine film grain, quiet sense of a finished task --ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration, 3d render
+```
+
+**6. Folded laundry**
+```
+small stack of freshly folded children's clothes on the corner of a made bed, one folded t-shirt slightly askew, close and slightly from above, shallow depth of field, warm afternoon light, soft neutral colours, 50mm f/1.8, fine film grain, tender and unglamorous --ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration, 3d render
+```
+
+**7. Homework finished**
+```
+child's desk after homework, closed notebook squared up with a pencil resting on top, small lamp switched on, chair pushed in, low warm evening light, a few pencil marks on the desk surface, 35mm f/2, fine film grain, tidy but genuinely used --ar 4:5 --style raw --no text, watermark, logo, people, screens, cartoon, illustration, 3d render
+```
+
+**8. Hands pulling a duvet straight**
+```
+close up of a child's hands smoothing a white duvet straight across a bed, only hands and forearms visible, bright morning window light, soft shadows, visible cotton texture, mid-motion, 50mm f/2, slightly imperfect quick framing, fine film grain --ar 4:5 --style raw --no face, head, body, text, watermark, logo, cartoon, illustration, 3d render
+```
+
+**9. Parent's hands holding a phone**
+```
+over-the-shoulder view of an adult's hands holding a smartphone at a kitchen table, no face visible, plain blank light grey phone screen, coffee cup blurred in the foreground, warm morning kitchen light, 50mm f/1.8, relaxed unhurried mood, fine film grain --ar 4:5 --style raw --no face, head, text, watermark, logo, cartoon, illustration, 3d render
+```
+
+**10. Before and after** — run A, then use its image URL as a reference at the
+front of B so the room matches:
+```
+A: child's bedroom in the morning, messy but ordinary, duvet thrown back and twisted, two shirts on the floor, backpack tipped over near the door, flat natural window light, photographed from the doorway at standing height, 35mm f/2.8, fine film grain, realistic not staged --ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration, 3d render
+
+B: the same child's bedroom from the same doorway angle and same window light, now tidy, duvet pulled straight, clothes put away, backpack upright by the door, 35mm f/2.8, fine film grain --ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration, 3d render
+```
+
+**Getting consistency across the set:** once you have one image whose light and
+palette you like, copy its URL and paste it at the very start of the next
+prompt, before the words. Midjourney will carry the look across. That is the
+cheapest way to make ten separate generations feel like one photoshoot.
