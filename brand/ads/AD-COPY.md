@@ -68,6 +68,47 @@ Source for the figure: Common Sense Media census of media use, ages 8 to 18
 
 ---
 
+## Send the ads to the site, not the App Store
+
+I originally pointed every CTA at the App Store listing. The category leaders
+do the opposite, and it is the single biggest structural difference between
+their setup and ours:
+
+| Brand | Destination | Share of ads |
+|---|---|---|
+| Calm | `quiz.calm.com` via **Learn more** | 247 of 250; only **3** use app-install |
+| Noom | quiz landing page via **Learn more** | 204 of 210 |
+| Headspace | web signup via **Sign up** | 95% |
+| Whoop / Oura | own site via **Shop now** | 93–97% |
+
+Why it matters for us: an App Store click is invisible to Meta, so the pixel
+never sees it, the visitor can't be retargeted, and the only optimizable event
+is the outbound click. Sending traffic to earnit-site instead means Meta can
+optimize on real signals we already fire, and the site hands people to the App
+Store anyway.
+
+Recommended: **Learn more → earnit-site.vercel.app**, optimize to Lead first,
+then StartTrial once volume allows.
+
+## Operating numbers worth knowing
+
+From Motion's 2026 benchmark ($1.29B Meta spend, 578,750 creatives):
+
+- **Roughly 1 new creative per $3,000 of monthly spend.** At $25/day that is
+  about 1–2 new ads a month, not a constant firehose.
+- **Only 5–8% of creatives become winners**, and about half never get
+  meaningful spend. Expect most of these to do nothing; that is normal.
+- Accounts under $10K/month see a **3.8% hit rate**, so plan on testing
+  several concepts before one works.
+- **Kill rule:** pause anything under **0.8% CTR after 1,000 impressions.**
+- **Fatigue:** at frequency 4, CTR falls ~23% and CPC rises ~68%. Refresh when
+  frequency passes 2.5–3.0, typically every 7–14 days.
+
+Format hit rates from the same dataset, highest first: text-only **11.6%**,
+product image plus text **8.75%**, lifestyle product **7.59%**, UGC **7.56%**,
+high production **6.87%**. Motion's own summary: the best-performing formats
+were the easiest ones to make. Polish is not the variable; the idea is.
+
 ## Rules for future creative
 
 - One idea per ad. If the image needs a second sentence to make sense, the idea is too big.
