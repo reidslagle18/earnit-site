@@ -47,6 +47,11 @@ body {
 .stamp { margin-top: 14px; font-size: 19px; color: var(--faint); }
 .stamp.right { align-self: flex-end; }
 
+/* a bubble with its own timestamp beside it */
+.row { display: flex; align-items: flex-end; gap: 18px; }
+.row .t { font-size: 20px; color: var(--faint); padding-bottom: 8px; white-space: nowrap; }
+.row.me { align-self: flex-end; flex-direction: row-reverse; }
+
 /* an EarnIt surface dropped into the conversation */
 .card {
   margin-top: 30px; background: #fff; border-radius: 20px; padding: 24px 28px;

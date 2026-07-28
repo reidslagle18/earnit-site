@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="thread.css" />
+<style>
+  body { background: var(--em); color: #f4f3ef; }
+  .mark { color: #f4f3ef; }
+  h1 { color: #f7f5f0; max-width: 920px; }
+  h1 em { color: #8fd6ba; }
+  .sub { color: rgba(244,243,239,.78); max-width: 800px; }
+  .fine { color: rgba(244,243,239,.55); }
+
+  .flip { display: flex; align-items: center; gap: 26px; margin-bottom: 56px; }
+  .tile {
+    width: 132px; height: 132px; border-radius: 30px; position: relative; flex: 0 0 auto;
+  }
+  .tile.off { background: rgba(244,243,239,.14); }
+  .tile.off::after {
+    content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    margin-top: 7px; width: 42px; height: 34px; border-radius: 7px; background: rgba(244,243,239,.62);
+  }
+  .tile.off::before {
+    content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-100%);
+    margin-top: -11px; width: 26px; height: 26px; border: 7px solid rgba(244,243,239,.62);
+    border-bottom: 0; border-radius: 15px 15px 0 0;
+  }
+  .tile.on { background: #8fd6ba; }
+  .tile.on::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%,-58%) rotate(42deg);
+    width: 26px; height: 48px; border: 9px solid var(--em);
+    border-top: 0; border-left: 0; border-radius: 3px;
+  }
+  .arrow { font-size: 44px; color: rgba(244,243,239,.5); }
+  .flip .cap { margin-left: 12px; font-size: 24px; color: rgba(244,243,239,.72); line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="mark">Earn<span>It</span></div>
+
+  <div class="flip">
+    <span class="tile off"></span>
+    <span class="arrow">&#8594;</span>
+    <span class="tile on"></span>
+    <span class="cap">Locked until the work is done.<br />Then it opens itself.</span>
+  </div>
+
+  <h1>The phone is why nothing gets done. <em>Make it the reason it does.</em></h1>
+  <p class="sub">EarnIt locks games and social apps until chores, homework and reading are finished, proved with a photo or a timer. The one thing your kid won&rsquo;t put down becomes the thing they have to earn.</p>
+  <p class="fine">First week free &middot; then $9.99/month &middot; cancel anytime</p>
+
+  <div class="grain"></div>
+</body>
+</html>
