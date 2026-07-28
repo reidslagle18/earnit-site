@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+<style>
+  /* Painted Paper mode: the photograph IS the ad. No headline, no band, no logo.
+     All copy lives in Meta's primary text / headline / description fields.
+     Full-bleed plate: 960x1200 x1.125 = 1080x1350 exactly.
+     Screen box: x 236..720, y 94..1106  ->  x 265, y 106, w 545, h 1139 */
+  :root { --ios-blue: #248bf5; --ios-sec: #8e8e93; --ios-label3: #c7c7cc;
+    --sf: "Inter", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body {
+    position: relative;
+    background-image: url("plate.png");
+    background-size: 1080px 1350px; background-position: 0 0; background-repeat: no-repeat;
+  }
+  .screen {
+    position: absolute; z-index: 2; overflow: hidden;
+    left: 265px; top: 106px; width: 545px; height: 1139px;
+    border-radius: 52px; background: #fff;
+    font-family: var(--sf); -webkit-font-smoothing: antialiased;
+  }
+  .notch {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 12;
+    width: 168px; height: 44px; background: #050706; border-radius: 0 0 21px 21px;
+  }
+  .sheen {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none;
+    background:
+      linear-gradient(158deg, rgba(255,255,255,.36) 0%, rgba(255,255,255,0) 28%),
+      linear-gradient(200deg, rgba(150,170,180,.1) 0%, rgba(150,170,180,0) 40%);
+  }
+  .vign {
+    position: absolute; inset: 0; z-index: 10; pointer-events: none; border-radius: 52px;
+    box-shadow: inset 0 0 24px rgba(20,30,26,.16), inset 0 2px 0 rgba(255,255,255,.4);
+  }
+  .status { height: 47px; display: flex; align-items: center; justify-content: space-between; padding: 12px 30px 0; position: relative; z-index: 7; }
+  .status .time { font-size: 21px; font-weight: 600; letter-spacing: -.01em; color: #000; }
+  .status .icons { display: flex; align-items: center; gap: 8px; }
+  .nav { position: relative; padding: 4px 0 11px; display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: rgba(249,249,249,.92); border-bottom: .5px solid rgba(60,60,67,.22); }
+  .nav .back { position: absolute; left: 22px; top: 14px; }
+  .nav .vid { position: absolute; right: 24px; top: 18px; }
+  .nav .av { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(180deg,#b9bcc2 0%,#9a9ea6 100%);
+    display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 500; color: #fff; }
+  .nav .nm { display: flex; align-items: center; gap: 5px; font-size: 18px; color: #000; letter-spacing: -.01em; }
+  .msgs { padding: 22px 20px 0; display: flex; flex-direction: column; }
+  .tstamp { text-align: center; font-size: 16px; color: var(--ios-sec); margin: 6px 0 18px; letter-spacing: -.01em; }
+  .tstamp b { font-weight: 600; }
+  .m { position: relative; align-self: flex-end; max-width: 76%; background: var(--ios-blue); color: #fff;
+    border-radius: 28px; padding: 13px 22px; font-size: 23px; line-height: 1.24; letter-spacing: -.015em; margin-bottom: 11px; }
+  .m.last::before { content: ""; position: absolute; z-index: 0; bottom: 0; right: -8px; width: 21px; height: 23px;
+    background: var(--ios-blue); border-bottom-left-radius: 17px; }
+  .m.last::after { content: ""; position: absolute; z-index: 1; bottom: 0; right: -17px; width: 19px; height: 23px;
+    background: #fff; border-bottom-left-radius: 13px; }
+  .m span { position: relative; z-index: 2; }
+  .rcpt { align-self: flex-end; font-size: 15px; color: var(--ios-sec); margin: -3px 6px 0 0; }
+  .composer { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; padding: 13px 18px 30px;
+    display: flex; align-items: center; gap: 13px; background: rgba(249,249,249,.94); border-top: .5px solid rgba(60,60,67,.2); }
+  .composer .plusbtn { width: 41px; height: 41px; border-radius: 50%; background: #e9e9eb; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .composer .field { flex: 1; height: 45px; border: 1.2px solid rgba(60,60,67,.22); border-radius: 23px;
+    display: flex; align-items: center; padding: 0 16px; font-size: 20px; color: var(--ios-label3); letter-spacing: -.01em; }
+  .homebar { position: absolute; left: 50%; transform: translateX(-50%); bottom: 10px; z-index: 5;
+    width: 138px; height: 5px; border-radius: 3px; background: #000; opacity: .3; }
+</style>
+</head>
+<body>
+  <div class="screen">
+    <div class="notch"></div>
+    <div class="status">
+      <span class="time">9:41</span>
+      <span class="icons">
+        <svg width="26" height="18" viewBox="0 0 26 18" fill="#000">
+          <rect x="0" y="11" width="4" height="6" rx="1.3"/><rect x="6.5" y="8" width="4" height="9" rx="1.3"/>
+          <rect x="13" y="5" width="4" height="12" rx="1.3"/><rect x="19.5" y="1.6" width="4" height="15.4" rx="1.3" opacity=".28"/>
+        </svg>
+        <svg width="22" height="17" viewBox="0 0 22 17" fill="none" stroke="#000" stroke-width="2.1" stroke-linecap="round">
+          <path d="M1.8 5.8a13.6 13.6 0 0 1 18.4 0"/><path d="M5.5 9.6a8.6 8.6 0 0 1 11 0"/>
+          <circle cx="11" cy="13.7" r="1.4" fill="#000" stroke="none"/>
+        </svg>
+        <svg width="31" height="16" viewBox="0 0 31 16">
+          <rect x="0.7" y="0.7" width="25.5" height="14.6" rx="4.5" fill="none" stroke="#000" stroke-opacity=".38" stroke-width="1.3"/>
+          <rect x="2.4" y="2.4" width="17" height="11.2" rx="3" fill="#000"/>
+          <path d="M27.9 5.5v5a2.8 2.8 0 0 0 0-5z" fill="#000" fill-opacity=".4"/>
+        </svg>
+      </span>
+    </div>
+    <div class="nav">
+      <span class="back"><svg width="14" height="24" viewBox="0 0 14 24" fill="none" stroke="#007aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2 3 12l8 10"/></svg></span>
+      <span class="vid"><svg width="31" height="20" viewBox="0 0 31 20" fill="#007aff"><rect x="0" y="2" width="20" height="16" rx="4.6"/><path d="M22 7.6 30 3.2v13.6L22 12.4z"/></svg></span>
+      <span class="av">M</span>
+      <span class="nm">Mason <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#8e8e93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1.4 1.4 5.4 6l-4 4.6"/></svg></span>
+    </div>
+    <div class="msgs">
+      <div class="tstamp"><b>Today</b> 6:02 PM</div>
+      <div class="m last"><span>can you take the trash out</span></div>
+      <div class="tstamp">6:41 PM</div>
+      <div class="m last"><span>trash?</span></div>
+      <div class="tstamp">7:19 PM</div>
+      <div class="m"><span>the trash</span></div>
+      <div class="m last"><span>hello</span></div>
+      <div class="rcpt">Delivered &middot; not read</div>
+    </div>
+    <div class="composer">
+      <span class="plusbtn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#8e8e93" stroke-width="2.3" stroke-linecap="round"><path d="M10 3.5v13M3.5 10h13"/></svg></span>
+      <span class="field">iMessage</span>
+    </div>
+    <div class="homebar"></div>
+    <div class="sheen"></div>
+    <div class="vign"></div>
+  </div>
+</body>
+</html>
