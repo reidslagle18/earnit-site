@@ -68,6 +68,40 @@ Source for the figure: Common Sense Media census of media use, ages 8 to 18
 
 ---
 
+## The current set — "the argument that doesn't happen"
+
+Four executions, one template. Each carries one real thing the subscription
+does. Files are `t1`–`t4` in this folder.
+
+### t1 — You didn't say a word
+*Sells: automatic enforcement. The parent is removed from the conflict.*
+
+**Primary text:** The 9pm negotiation is over. EarnIt keeps your kid's apps locked until their tasks are actually done, so the rule stops being something you have to defend.
+**Headline:** `Chores first. Apps after.` · **CTA:** Download
+
+### t2 — "Yes" now comes with a photo
+*Sells: photo and timer proof, AI verification, parent override.*
+
+**Primary text:** "I already did it" stops being a debate. Your kid submits a photo or runs a timer, AI checks the evidence in seconds, and you approve with one tap.
+**Headline:** `Proof, not promises` · **CTA:** Download
+
+### t3 — Locked apps. Never locked calls.
+*Sells: emergency-safe design. Handles the first objection every parent has.*
+
+**Primary text:** The question every parent asks first: what happens in an emergency? Calls, texts to you and emergency services are never locked. EarnIt only locks games and social apps.
+**Headline:** `Emergency-safe by design` · **CTA:** Download
+
+### t4 — Since EarnIt.
+*Sells: the actual outcome — a kid who does the work unprompted.*
+
+**Primary text:** The goal was never a locked phone. It was a kid who gets it done without being asked. EarnIt makes screen time something they unlock themselves.
+**Headline:** `Screen time they earn` · **CTA:** Download
+
+Where the set goes next, same template: the parent-to-parent thread ("we don't
+do the 9pm fight anymore"), the sibling thread on a Premium family plan, and the
+one where the kid asks for ten more minutes and the answer is "ask the
+dishwasher."
+
 ## Send the ads to the site, not the App Store
 
 I originally pointed every CTA at the App Store listing. The category leaders
