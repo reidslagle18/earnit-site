@@ -1,6 +1,62 @@
 # EarnIt image prompts
 
-## Start here — the simple set
+## Start here — the designed look (use this)
+
+Not photographs. A designed campaign image can't fall into uncanny valley,
+because it isn't claiming to be real. Pick **one** of the two directions below
+and use it for the whole set, or it won't read as a campaign.
+
+Both keep empty space at the top for the headline, and neither asks the model
+to render text.
+
+### Direction A — soft 3D objects on a brand colour field
+
+The current default for app advertising: matte, tactile objects floating on one
+flat colour with a soft shadow. Clean, premium, unmistakably designed.
+
+Tail for all of these:
+```
+--ar 4:5 --style raw --no text, watermark, logo, people, photo, realistic, busy, cluttered
+```
+
+```
+a single smartphone standing upright on a deep emerald green background, plain pale screen, soft 3D matte clay render, gentle studio light, long soft shadow, generous empty space above, minimal
+```
+```
+a soft 3D matte clay render of a small neatly made bed floating on a warm off-white background, pale green blanket, gentle studio light, soft shadow, empty space above, minimal
+```
+```
+a soft 3D matte clay render of a small stack of folded clothes on a deep emerald background, muted pastel garments, gentle studio light, soft shadow, generous empty space above, minimal
+```
+
+### Direction B — minimal flat illustration
+
+Quieter and more editorial. Closer to your existing brand: warm off-white,
+one green, thin lines, no cartoon energy.
+
+Tail for all of these:
+```
+--ar 4:5 --style raw --no text, watermark, logo, faces, photo, 3d, realistic, cartoon, childish
+```
+
+```
+minimal flat vector illustration of a tidy child's bedroom, thin clean lines, limited palette of warm off-white and one deep emerald green, large areas of flat colour, generous empty space at the top, calm and editorial
+```
+```
+minimal flat vector illustration of a phone lying face down beside a small checklist with three ticks, thin clean lines, warm off-white and deep emerald palette, flat shapes, lots of negative space, calm and editorial
+```
+
+**Which to choose.** Direction A photographs better in a feed — the shadow and
+depth stop a scroll harder. Direction B sits closer to your existing brand and
+ages better. A is the safer bet for cold traffic.
+
+Send me two or three from whichever you pick and I'll set the headline into the
+empty space. If you'd rather skip generating altogether, this look is also
+something I can build directly in code to exact spec — say the word.
+
+---
+
+## The photographic set (only if you want realism)
 
 Short prompts that produce something already close to a finished social ad. The
 trick is asking for **empty space in the top third**, so a headline has
