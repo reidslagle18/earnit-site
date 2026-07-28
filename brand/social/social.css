@@ -1,0 +1,53 @@
+/* EarnIt social cards — 1080x1350 so any post can become an ad without a re-crop */
+:root {
+  --paper: #f2f1ec;
+  --ink: #16201c;
+  --muted: #5c655f;
+  --faint: rgba(22,32,28,.42);
+  --em: #0a5240;
+  --em-wash: #e4efe8;
+  --disp: "Frank Ruhl Libre", Georgia, serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--disp);
+  position: relative; padding: 150px 84px 110px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.grain {
+  position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.mark {
+  position: absolute; left: 84px; top: 74px;
+  font-weight: 700; font-size: 34px; letter-spacing: -.012em; color: var(--em);
+}
+.mark span { opacity: .5; }
+
+/* house rule */
+.rule {
+  font-weight: 900; font-size: 104px; line-height: 1.04;
+  letter-spacing: -.015em; color: var(--em);
+}
+.rule.sm { font-size: 88px; }
+
+/* objection */
+.label {
+  font-weight: 500; font-size: 26px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--faint); margin-bottom: 34px;
+}
+.q {
+  font-weight: 900; font-size: 84px; line-height: 1.05;
+  letter-spacing: -.015em; color: var(--em);
+}
+.a {
+  margin-top: 44px; font-weight: 400; font-size: 38px; line-height: 1.45;
+  color: var(--muted); max-width: 860px;
+}
+.a b { color: var(--ink); font-weight: 700; }
+
+.endline {
+  position: absolute; left: 84px; bottom: 84px;
+  font-weight: 400; font-size: 26px; color: var(--faint);
+}
