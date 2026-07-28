@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=block" rel="stylesheet" />
+<style>
+  :root {
+    --em: #0a5240; --em-dk: #063a2c; --em-lt: #8fd6ba;
+    --paper: #f4f3ef; --ink: #16201c; --muted: #6c7570;
+    --sms: #2f9e6b;
+    --disp: "Fraunces", Georgia, serif;
+    --ui: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body {
+    font-family: var(--ui); position: relative;
+    background:
+      radial-gradient(130% 90% at 50% -10%, #0d6349 0%, var(--em) 52%, var(--em-dk) 100%);
+  }
+  .grain {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .mark {
+    position: absolute; left: 66px; top: 56px; z-index: 6;
+    font-family: var(--disp); font-weight: 600; font-size: 31px;
+    letter-spacing: -.015em; color: #f4f3ef;
+  }
+  .mark span { opacity: .55; }
+
+  h1 {
+    position: absolute; left: 66px; top: 148px; width: 950px; z-index: 6;
+    font-family: var(--disp); font-weight: 600; font-size: 78px; line-height: 1.02;
+    letter-spacing: -.022em; color: #f7f5f0;
+  }
+  h1 em { font-style: normal; color: var(--em-lt); }
+  .fine {
+    position: absolute; left: 66px; top: 406px; z-index: 6;
+    font-size: 24px; color: rgba(244,243,239,.66);
+  }
+
+  /* ── device, bleeding off the bottom ── */
+  .phone {
+    position: absolute; left: 50%; top: 500px; width: 440px; height: 900px; z-index: 5;
+    transform: translateX(-50%) scale(1.16); transform-origin: 50% 0;
+    border-radius: 56px; padding: 11px;
+    background: linear-gradient(158deg, #59635e 0%, #131a17 34%, #3a453f 66%, #0e1412 100%);
+    box-shadow: 0 -8px 70px rgba(2,20,14,.5), 0 30px 90px rgba(2,20,14,.55);
+  }
+  .screen { width: 100%; height: 100%; border-radius: 46px; overflow: hidden; background: #fff; position: relative; }
+  .notch { position: absolute; top: 13px; left: 50%; transform: translateX(-50%); width: 120px; height: 31px; background: #0d1210; border-radius: 17px; z-index: 4; }
+
+  .statusbar {
+    height: 54px; display: flex; align-items: flex-end; justify-content: space-between;
+    padding: 0 32px 5px; font-size: 17px; font-weight: 600; color: var(--ink);
+  }
+  .bars { display: flex; align-items: center; gap: 6px; }
+  .bars i { display: block; width: 4px; background: var(--ink); border-radius: 1px; }
+  .bars i:nth-child(1){height:6px} .bars i:nth-child(2){height:9px}
+  .bars i:nth-child(3){height:12px} .bars i:nth-child(4){height:15px}
+  .batt { width: 27px; height: 13px; border: 2px solid var(--ink); border-radius: 4px; position: relative; }
+  .batt::after { content:""; position:absolute; inset:2px; right:11px; background:var(--ink); border-radius:1px; }
+
+  /* messages nav */
+  .nav {
+    padding: 12px 0 14px; border-bottom: 1px solid rgba(22,32,28,.10);
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    background: rgba(250,250,248,.96);
+  }
+  .nav .av {
+    width: 54px; height: 54px; border-radius: 50%; background: #d9d8d2;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 600; color: #7c837e;
+  }
+  .nav .nm { font-size: 18px; font-weight: 500; color: var(--ink); }
+  .nav .chev {
+    position: absolute; left: 26px; top: 78px; width: 13px; height: 13px;
+    border-left: 3px solid #2f9e6b; border-bottom: 3px solid #2f9e6b;
+    transform: rotate(45deg);
+  }
+
+  .msgs { padding: 24px 22px 0; display: flex; flex-direction: column; gap: 12px; }
+  .day { text-align: center; font-size: 14px; color: rgba(22,32,28,.4); margin-bottom: 6px; }
+  .m {
+    align-self: flex-end; max-width: 78%; background: var(--sms); color: #fff;
+    border-radius: 22px; padding: 13px 19px; font-size: 21px; line-height: 1.3;
+    position: relative;
+  }
+  .m.tail { border-bottom-right-radius: 7px; }
+  .ts { align-self: center; font-size: 14px; color: rgba(22,32,28,.38); margin: 4px 0 2px; }
+  .rcpt { align-self: flex-end; font-size: 14px; color: rgba(22,32,28,.4); margin-top: 6px; }
+
+  .composer {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 22px 26px;
+    background: rgba(250,250,248,.96); border-top: 1px solid rgba(22,32,28,.09);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .composer .fieldy {
+    flex: 1; height: 44px; border: 1.5px solid rgba(22,32,28,.16); border-radius: 22px;
+  }
+  .composer .plus { font-size: 26px; color: rgba(22,32,28,.35); }
+  .homebar {
+    position: absolute; left: 50%; transform: translateX(-50%); bottom: 9px;
+    width: 130px; height: 5px; border-radius: 3px; background: rgba(22,32,28,.3); z-index: 5;
+  }
+</style>
+</head>
+<body>
+  <div class="mark">Earn<span>It</span></div>
+
+  <h1>You&rsquo;re not competing with laziness. <em>You&rsquo;re competing with a phone.</em></h1>
+  <p class="fine">EarnIt locks the games until the trash is actually out.</p>
+
+  <div class="phone">
+    <div class="screen">
+      <div class="notch"></div>
+      <div class="statusbar">
+        <span>9:41</span>
+        <span class="bars"><i></i><i></i><i></i><i></i><span class="batt"></span></span>
+      </div>
+      <div class="nav">
+        <span class="chev"></span>
+        <span class="av">M</span>
+        <span class="nm">Mason</span>
+      </div>
+      <div class="msgs">
+        <div class="day">Today</div>
+        <div class="m">can you take the trash out</div>
+        <div class="ts">6:02 PM</div>
+        <div class="m">trash?</div>
+        <div class="ts">6:41 PM</div>
+        <div class="m">the trash</div>
+        <div class="ts">7:19 PM</div>
+        <div class="m tail">hello</div>
+        <div class="rcpt">Delivered &middot; not read</div>
+      </div>
+      <div class="composer"><span class="plus">+</span><span class="fieldy"></span></div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>
