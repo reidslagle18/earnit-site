@@ -1,5 +1,48 @@
 # EarnIt image prompts
 
+## Start here — the simple set
+
+Short prompts that produce something already close to a finished social ad. The
+trick is asking for **empty space in the top third**, so a headline has
+somewhere to sit. Still don't ask for text; the model will garble it.
+
+Paste this tail on the end of every one:
+
+```
+--ar 4:5 --style raw --no text, watermark, logo, people, cartoon, illustration
+```
+
+**Flat lay — the most social-native option**
+```
+flat lay on a pale oak table, phone face down, small notepad and pencil, one green plant leaf, lots of empty space at the top, soft daylight, minimal, muted warm palette
+```
+
+**Made bed**
+```
+sunlit made bed in a child's room, white duvet, plain wall with empty space above, soft morning light, minimal and calm, muted palette
+```
+
+**Kitchen counter**
+```
+phone face down on a clean pale kitchen counter, generous empty space around it, soft morning light, minimal, muted warm tones
+```
+
+**Tidy room**
+```
+tidy child's bedroom in soft morning light, bed made, plain walls, uncluttered, empty space across the upper half, muted natural palette
+```
+
+**Folded laundry**
+```
+neat stack of folded children's clothes on a plain white bed, soft daylight, minimal composition, lots of empty space, muted palette
+```
+
+Run each a few times, keep whichever has the calmest light and the most usable
+empty area, and send me two or three. I put the line of type and the offer into
+that space and it's a finished ad.
+
+---
+
 > **Using Midjourney?** Skip to [Midjourney versions](#midjourney-versions-paste-these-as-is)
 > at the bottom. The prose prompts in the middle of this file are tuned for
 > ChatGPT, Gemini and Firefly, which read full sentences well. Midjourney
