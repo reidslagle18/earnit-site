@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  body {
+    background: var(--paper); color: var(--ink);
+    padding: 62px 66px 66px; display: flex; flex-direction: column;
+  }
+  .mark { color: var(--em-ink); }
+  h1 {
+    margin-top: 92px; font-family: var(--disp); font-weight: 600; font-size: 92px;
+    line-height: 1.0; letter-spacing: -.022em; max-width: 920px;
+  }
+  h1 .n { color: var(--em-ink); }
+  .rule { margin-top: 46px; width: 132px; height: 4px; background: var(--ochre); }
+  .lede { margin-top: 42px; max-width: 840px; font-size: 30px; line-height: 1.5; color: var(--muted); }
+  .lede b { color: var(--ink); font-weight: 600; }
+  .src { margin-top: 26px; font-size: 19px; color: var(--muted); }
+
+  .panel {
+    margin-top: 70px; background: var(--em-deep); border-radius: 10px; padding: 40px 44px; color: var(--on-em);
+  }
+  .panel .ph { font-size: 21px; color: var(--on-em-2); }
+  .panel .grid { margin-top: 26px; display: flex; gap: 64px; }
+  .panel .k { font-family: var(--disp); font-weight: 600; font-size: 60px; letter-spacing: -.02em; line-height: 1; }
+  .panel .l { margin-top: 10px; font-size: 20px; color: var(--on-em-2); }
+
+  .footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .fine { text-align: right; }
+</style>
+</head>
+<body>
+  <div class="mark">Earn<span class="t">It</span></div>
+
+  <h1>Your kid will spend about <span class="n">2,000 hours</span> on screens this year.</h1>
+
+  <div class="rule"></div>
+
+  <p class="lede">That&rsquo;s the average for children between 8 and 18. EarnIt decides what has to happen first: <b>chores, homework, reading,</b> each one proved with a photo or a timer before the apps open.</p>
+  <p class="src">Based on Common Sense Media&rsquo;s census of media use, ages 8 to 18.</p>
+
+  <div class="panel">
+    <div class="ph">What one week can look like</div>
+    <div class="grid">
+      <div><div class="k">14</div><div class="l">tasks approved</div></div>
+      <div><div class="k">6h 20m</div><div class="l">screen time earned</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="cta on-paper">Start your free week &#8594;</div>
+    <div class="fine">First week free.<br />$9.99/month after.</div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>

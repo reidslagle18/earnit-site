@@ -4,83 +4,44 @@
 <meta charset="utf-8" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500&display=block" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="tokens.css" />
 <style>
-  :root {
-    --ink: #14110f; --parch: #f2eee7; --paper: #fdfcf9;
-    --muted: #6b6560; --faint: rgba(20,17,15,.4);
-    --green: #0d8a63; --green-dk: #0a6f50; --mint: #7fe3bd;
-    --disp: "Fraunces", Georgia, serif;
-    --ui: "Bricolage Grotesque", system-ui, sans-serif;
-    --mono: "IBM Plex Mono", monospace;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1080px; height: 1350px; overflow: hidden; }
-  body { background: var(--parch); font-family: var(--ui); color: var(--ink); position: relative; }
-  .grain {
-    position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .band {
-    padding: 70px 66px 62px; color: #fbf9f5;
-    background:
-      radial-gradient(100% 80% at 88% 10%, #262019 0%, rgba(38,32,25,0) 60%),
-      linear-gradient(170deg, #191410 0%, var(--ink) 100%);
-  }
-  .eyebrow {
-    font-family: var(--mono); font-size: 19px; letter-spacing: .26em;
-    text-transform: uppercase; color: var(--mint);
-  }
+  body { background: var(--paper); color: var(--ink); }
+  .band { padding: 62px 66px 66px; background: var(--em-deep); color: var(--on-em); }
+  .band .mark { color: var(--on-em); }
   .band h1 {
-    margin-top: 34px; font-family: var(--disp); font-weight: 600; font-size: 86px;
-    line-height: .98; letter-spacing: -.035em; max-width: 900px;
+    margin-top: 46px; font-family: var(--disp); font-weight: 600; font-size: 80px;
+    line-height: 1.03; letter-spacing: -.02em; max-width: 880px;
   }
-  .band h1 .m { color: var(--mint); }
+  .band h1 .m { color: #a9dbc6; }
 
   table { width: 100%; border-collapse: collapse; }
   thead th {
-    font-family: var(--mono); font-size: 17px; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--faint); font-weight: 500; text-align: left; padding: 26px 20px 16px;
-    border-bottom: 2px solid rgba(20,17,15,.18);
+    font-size: 20px; color: var(--muted); font-weight: 600; text-align: left;
+    padding: 30px 20px 18px; border-bottom: 2px solid rgba(22,32,28,.16);
   }
-  thead th.us { color: var(--green-dk); }
-  td {
-    padding: 40px 20px; font-size: 25px; line-height: 1.3; vertical-align: middle;
-    border-bottom: 1px solid rgba(20,17,15,.1);
-  }
-  td.q { font-weight: 600; width: 372px; padding-left: 66px; }
-  col.usc { background: rgba(13,138,99,.075); }
-  td.us { color: var(--green-dk); font-weight: 700; }
-  td.no { color: rgba(20,17,15,.42); }
+  thead th.us { color: var(--em-ink); }
+  td { padding: 30px 20px; font-size: 25px; line-height: 1.3; vertical-align: middle; border-bottom: 1px solid rgba(22,32,28,.09); }
+  td.q { font-weight: 600; width: 368px; padding-left: 66px; }
+  col.usc { background: var(--em-wash); }
+  td.us { color: var(--em-ink); font-weight: 700; }
+  td.no { color: var(--muted); }
   td:last-child { padding-right: 66px; }
   thead th:first-child { padding-left: 66px; }
   thead th:last-child { padding-right: 66px; }
-  .chk {
-    display: inline-block; vertical-align: -3px; width: 26px; height: 26px; margin-right: 12px;
-    border-radius: 5px; background: var(--green); position: relative;
-  }
-  .chk::after {
-    content: ""; position: absolute; left: 8px; top: 7px; width: 7px; height: 13px;
-    border: 3px solid #fff; border-top: 0; border-left: 0; transform: rotate(42deg); border-radius: 1px;
-  }
-  .dash { display: inline-block; width: 26px; height: 3px; background: rgba(20,17,15,.25); vertical-align: 6px; }
+  .chk { display:inline-block; vertical-align:-3px; width:26px; height:26px; margin-right:11px; border-radius:5px; background:var(--em-mid); position:relative; }
+  .chk::after { content:""; position:absolute; left:8px; top:7px; width:7px; height:13px; border:3px solid #fff; border-top:0; border-left:0; transform:rotate(42deg); border-radius:1px; }
+  .dash { display:inline-block; width:24px; height:3px; background:rgba(22,32,28,.24); vertical-align:6px; }
 
-  .closer {
-    padding: 52px 66px 0; font-family: var(--disp); font-weight: 600; font-size: 54px;
-    letter-spacing: -.03em; line-height: 1.05;
-  }
-  .closer .m { color: var(--green-dk); }
-  .foot { padding: 40px 66px 0; display: flex; align-items: center; gap: 30px; }
-  .cta {
-    display: inline-flex; align-items: center; gap: 14px; background: var(--green); color: #fff;
-    font-weight: 700; font-size: 27px; padding: 23px 36px; border-radius: 4px;
-  }
-  .fine { font-family: var(--mono); font-size: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); line-height: 1.7; }
+  .closer { padding: 40px 66px 0; font-size: 28px; line-height: 1.45; color: var(--muted); max-width: 940px; }
+  .closer b { color: var(--ink); font-weight: 600; }
+  .foot { padding: 34px 66px 0; display: flex; align-items: center; gap: 30px; }
 </style>
 </head>
 <body>
   <div class="band">
-    <div class="eyebrow">Earnit &nbsp;/&nbsp; the category is wrong</div>
+    <div class="mark">Earn<span class="t">It</span></div>
     <h1>Timers police. Trackers spy. <span class="m">EarnIt motivates.</span></h1>
   </div>
 
@@ -106,22 +67,22 @@
         <td class="q">Reads messages, tracks location</td>
         <td class="us"><span class="chk"></span>Never</td>
         <td class="no">Sometimes</td>
-        <td class="no">That&rsquo;s the point</td>
+        <td class="no">Always</td>
       </tr>
       <tr>
         <td class="q">Ends the nightly argument</td>
         <td class="us"><span class="chk"></span>Rules are automatic</td>
-        <td class="no">You&rsquo;re the timer cop</td>
+        <td class="no">You enforce it</td>
         <td class="no">Starts new ones</td>
       </tr>
     </tbody>
   </table>
 
-  <div class="closer">Responsibility, <span class="m">not surveillance.</span></div>
+  <p class="closer">It locks games and social apps until the work is finished. <b>Emergency calls always go through.</b></p>
 
   <div class="foot">
-    <div class="cta">Start your free week &#8594;</div>
-    <div class="fine">First week free &middot; then $9.99/mo<br />Cancel anytime</div>
+    <div class="cta on-paper">Start your free week &#8594;</div>
+    <div class="fine">First week free, then $9.99/month.<br />Cancel anytime.</div>
   </div>
 
   <div class="grain"></div>

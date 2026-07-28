@@ -1,0 +1,37 @@
+/* EarnIt ad system v2
+   Deliberate palette: emerald as a real colour field (not a glow on black),
+   a cooler paper than the default warm cream, ochre as a warm counterpoint.
+   No radial halos. No eyebrows. Letter-spacing eased to optical values. */
+:root {
+  --em-deep: #0a5240;   /* primary ground */
+  --em-mid:  #0d7a5c;   /* CTA / emphasis */
+  --em-ink:  #063428;   /* deepest green, for type on paper */
+  --em-wash: #e8efe9;   /* tinted column / surface on paper */
+  --paper:   #f4f3ef;   /* cooler than parchment; away from AI beige */
+  --paper-2: #fbfaf8;   /* raised card */
+  --ink:     #16201c;   /* near-black, green-biased */
+  --muted:   #5c655f;
+  --faint:   rgba(22,32,28,.42);
+  --ochre:   #b8892a;   /* warm counterpoint, used sparingly */
+  --on-em:   #f7f6f1;   /* near-white on emerald, never gray */
+  --on-em-2: rgba(247,246,241,.82);
+  --disp: "Fraunces", Georgia, serif;
+  --ui: "Bricolage Grotesque", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; }
+body { font-family: var(--ui); position: relative; }
+.grain {
+  position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* wordmark replaces the tracked-uppercase eyebrow: a brand system, not scaffolding */
+.mark { font-family: var(--disp); font-weight: 600; font-size: 34px; letter-spacing: -.015em; }
+.mark .t { opacity: .58; }
+.cta {
+  display: inline-flex; align-items: center; gap: 13px; background: var(--em-mid); color: #fff;
+  font-weight: 700; font-size: 27px; padding: 23px 36px; border-radius: 4px;
+}
+.cta.on-paper { background: var(--em-ink); }
+.fine { font-size: 20px; color: var(--muted); line-height: 1.5; }
+.fine.on-em { color: var(--on-em-2); }
