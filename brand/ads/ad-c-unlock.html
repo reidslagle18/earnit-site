@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  body { background: var(--paper); color: var(--ink); padding: 60px 66px 76px; display: flex; flex-direction: column; justify-content: center; }
+  .mark { position: absolute; left: 66px; top: 60px; color: var(--em-ink); }
+  h1 {
+    font-family: var(--disp); font-weight: 600; font-size: 108px;
+    line-height: .99; letter-spacing: -.024em; max-width: 900px;
+  }
+  h1 .m { color: var(--em-ink); }
+
+  /* one visual idea: the same apps, locked then earned */
+  .stack { margin-top: 96px; display: flex; flex-direction: column; gap: 34px; }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .tile { aspect-ratio: 1; border-radius: 34px; position: relative; }
+  .tile.off { background: #dedcd4; }
+  .tile.off::after { content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:44px; height:36px; border-radius:7px; background:#a8a6a0; }
+  .tile.off::before { content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-100%); margin-top:-13px; width:28px; height:28px; border:8px solid #a8a6a0; border-bottom:0; border-radius:16px 16px 0 0; }
+  .tile.on { box-shadow: 0 12px 28px rgba(10,60,45,.16); }
+  .tile.on:nth-child(1) { background: var(--em-mid); }
+  .tile.on:nth-child(2) { background: var(--ochre); }
+  .tile.on:nth-child(3) { background: #6b4ea0; }
+  .tile.on:nth-child(4) { background: #b84c44; }
+  .tile.on::after {
+    content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(42deg);
+    width:24px; height:44px; border:9px solid rgba(255,255,255,.94); border-top:0; border-left:0; border-radius:3px;
+  }
+</style>
+</head>
+<body>
+  <div class="mark">Earn<span class="t">It</span></div>
+
+  <h1>Chores <span class="m">unlock</span> the apps.</h1>
+
+  <div class="stack">
+    <div class="row">
+      <span class="tile off"></span><span class="tile off"></span><span class="tile off"></span><span class="tile off"></span>
+    </div>
+    <div class="row">
+      <span class="tile on"></span><span class="tile on"></span><span class="tile on"></span><span class="tile on"></span>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>
