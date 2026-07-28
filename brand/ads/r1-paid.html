@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=block" rel="stylesheet" />
+<style>
+  :root {
+    --em: #0a5240;
+    --em-dk: #073a2d;
+    --paper: #f7f5f0;
+    --ink: #1a1a1a;
+    --ink-2: rgba(26,26,26,.55);
+    --ochre: #b8892a;
+    --disp: "Fraunces", Georgia, serif;
+    --mono: "IBM Plex Mono", monospace;
+    --ui: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body {
+    background: radial-gradient(120% 100% at 50% 0%, #0c5f4a 0%, var(--em) 55%, var(--em-dk) 100%);
+    font-family: var(--ui); position: relative;
+  }
+  .grain {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mark {
+    position: absolute; left: 66px; top: 58px; z-index: 4;
+    font-family: var(--disp); font-weight: 600; font-size: 32px;
+    letter-spacing: -.015em; color: #f2efe8;
+  }
+  .mark span { opacity: .55; }
+
+  h1 {
+    position: absolute; left: 66px; top: 148px; width: 760px; z-index: 4;
+    font-family: var(--disp); font-weight: 600; font-size: 92px; line-height: 1.0;
+    letter-spacing: -.022em; color: #f7f5f0;
+  }
+
+  /* ── receipt ── */
+  .receipt {
+    position: absolute; left: 262px; top: 408px; width: 556px; z-index: 5;
+    background: var(--paper); color: var(--ink);
+    padding: 46px 44px 40px;
+    transform: rotate(-1.4deg);
+    box-shadow: 0 42px 80px rgba(3,24,18,.42), 0 6px 16px rgba(3,24,18,.22);
+    font-family: var(--mono);
+  }
+  /* torn edges: ground-coloured scallops punched into the paper */
+  .tear {
+    position: absolute; left: 0; right: 0; height: 15px;
+    background-image: radial-gradient(circle at 9px 0, #0a5240 8.6px, rgba(10,82,64,0) 9.2px);
+    background-size: 18px 15px; background-repeat: repeat-x;
+  }
+  .tear.t { top: -1px; }
+  .tear.b { bottom: -1px; transform: rotate(180deg); }
+
+  .r-head { text-align: center; }
+  .r-head .brand {
+    font-family: var(--mono); font-weight: 700; font-size: 27px;
+    letter-spacing: .34em; text-transform: uppercase;
+  }
+  .r-head .sub {
+    margin-top: 10px; font-size: 16px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-2);
+  }
+
+  .rule { margin: 24px 0; border-top: 2px solid var(--ink); }
+  .rule.thin { border-top: 1px dashed rgba(26,26,26,.4); margin: 20px 0; }
+
+  .line { display: flex; align-items: baseline; font-size: 22px; padding: 9px 0; }
+  .line .l { text-transform: uppercase; letter-spacing: .04em; }
+  .line .dots { flex: 1; margin: 0 8px; border-bottom: 2px dotted rgba(26,26,26,.32); transform: translateY(-5px); }
+  .line .v { font-weight: 600; white-space: nowrap; }
+  .line.tot { font-size: 25px; font-weight: 700; padding: 12px 0 4px; }
+  .line.tot .v { font-size: 27px; }
+  .line.small { font-size: 18px; color: var(--ink-2); padding: 4px 0; }
+  .line.small .v { font-weight: 500; }
+
+  .stamp {
+    margin: 26px auto 8px; width: 214px; height: 214px; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    transform: rotate(-8deg);
+  }
+  .stamp::before, .stamp::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: 5px solid var(--ochre); opacity: .82;
+  }
+  .stamp::after { inset: 13px; border-width: 2px; }
+  .stamp b {
+    font-family: var(--mono); font-weight: 700; font-size: 52px;
+    letter-spacing: .12em; color: var(--ochre); opacity: .86;
+  }
+
+  .foot { text-align: center; margin-top: 14px; }
+  .foot .price {
+    font-size: 21px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .foot .why {
+    margin-top: 9px; font-size: 17px; letter-spacing: .05em;
+    text-transform: uppercase; color: var(--ink-2);
+  }
+  .bars { display: flex; align-items: flex-end; justify-content: center; gap: 3px; height: 54px; margin-top: 26px; }
+  .bars i { display: block; background: var(--ink); height: 100%; }
+</style>
+</head>
+<body>
+  <div class="mark">Earn<span>It</span></div>
+  <h1>Screen time has a price.</h1>
+
+  <div class="receipt">
+    <div class="tear t"></div>
+
+    <div class="r-head">
+      <div class="brand">EarnIt</div>
+      <div class="sub">Mason&rsquo;s phone &middot; Tuesday</div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="line"><span class="l">Bed made</span><span class="dots"></span><span class="v">20 min</span></div>
+    <div class="line"><span class="l">Reading 20:00</span><span class="dots"></span><span class="v">30 min</span></div>
+    <div class="line"><span class="l">Dishwasher</span><span class="dots"></span><span class="v">30 min</span></div>
+
+    <div class="rule thin"></div>
+
+    <div class="line tot"><span class="l">Earned</span><span class="dots"></span><span class="v">80 min</span></div>
+    <div class="line small"><span class="l">Apps unlocked</span><span class="dots"></span><span class="v">4:12 pm</span></div>
+
+    <div class="rule"></div>
+
+    <div class="stamp"><b>PAID</b></div>
+
+    <div class="foot">
+      <div class="price">EarnIt &nbsp;&middot;&nbsp; $9.99/mo</div>
+      <div class="why">Cheaper than the argument</div>
+      <div class="bars">
+        <i style="width:3px"></i><i style="width:7px"></i><i style="width:2px"></i><i style="width:4px"></i>
+        <i style="width:9px"></i><i style="width:2px"></i><i style="width:5px"></i><i style="width:3px"></i>
+        <i style="width:8px"></i><i style="width:2px"></i><i style="width:3px"></i><i style="width:6px"></i>
+        <i style="width:2px"></i><i style="width:9px"></i><i style="width:4px"></i><i style="width:2px"></i>
+        <i style="width:6px"></i><i style="width:3px"></i><i style="width:2px"></i><i style="width:7px"></i>
+        <i style="width:4px"></i><i style="width:2px"></i><i style="width:8px"></i><i style="width:3px"></i>
+        <i style="width:5px"></i><i style="width:2px"></i><i style="width:6px"></i><i style="width:4px"></i>
+      </div>
+    </div>
+
+    <div class="tear b"></div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>
