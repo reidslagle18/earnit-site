@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -9,7 +9,7 @@
   :root {
     --paper: #f2f1ec; --ink: #16201c; --muted: #5c655f;
     --em: #0a5240;
-    --ios-green: #34c759;      /* real iOS SMS bubble */
+    --ios-blue: #248bf5;       /* real iOS iMessage bubble */
     --ios-grey: #e9e9eb;       /* incoming bubble */
     --ios-label3: #c7c7cc;
     --ios-sec: #8e8e93;        /* secondaryLabel */
@@ -49,7 +49,7 @@
     background: linear-gradient(180deg, rgba(242,241,236,.85) 0%, rgba(242,241,236,0) 100%);
   }
 
-  /* ── the glass ── */
+  /* â”€â”€ the glass â”€â”€ */
   .screen {
     position: absolute; z-index: 2; overflow: hidden;
     left: 231px; top: 570px; width: 583px; height: 780px;
@@ -70,7 +70,7 @@
     box-shadow: inset 0 0 24px rgba(20,30,26,.18), inset 0 2px 0 rgba(255,255,255,.45);
   }
 
-  /* status bar — SF-ish, with the real icon trio */
+  /* status bar â€” SF-ish, with the real icon trio */
   .status {
     height: 64px; display: flex; align-items: center; justify-content: space-between;
     padding: 16px 40px 0;
@@ -107,15 +107,15 @@
   .tstamp b { font-weight: 600; color: var(--ios-sec); }
   .m {
     position: relative; align-self: flex-end; max-width: 74%;
-    background: var(--ios-green); color: #fff;
+    background: var(--ios-blue); color: #fff;
     border-radius: 30px; padding: 14px 24px;
     font-size: 25px; line-height: 1.24; letter-spacing: -.015em;
     margin-bottom: 12px;
   }
-  /* the tail on the last bubble of a group — the detail that sells it */
+  /* the tail on the last bubble of a group â€” the detail that sells it */
   .m.last::before {
     content: ""; position: absolute; z-index: 0; bottom: 0; right: -8px;
-    width: 22px; height: 24px; background: var(--ios-green);
+    width: 22px; height: 24px; background: var(--ios-blue);
     border-bottom-left-radius: 18px;
   }
   .m.last::after {
@@ -212,7 +212,7 @@
       <span class="plusbtn">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#8e8e93" stroke-width="2.4" stroke-linecap="round"><path d="M11 4v14M4 11h14"/></svg>
       </span>
-      <span class="field">Text Message</span>
+      <span class="field">iMessage</span>
     </div>
     <div class="homebar"></div>
 
