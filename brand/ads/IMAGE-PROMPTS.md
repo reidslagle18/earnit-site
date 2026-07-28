@@ -1,6 +1,35 @@
 # EarnIt image prompts
 
-## Start here — the designed look (use this)
+## The one that matters — the phone plate
+
+This is the prompt that upgrades the text-thread ads. Midjourney makes a
+photograph of a real phone with a **blank screen**; the thread gets composited
+onto the screen afterwards with correct perspective and a faint screen glow. The
+result looks photographed, and every word stays legible because the words are
+set, not generated.
+
+**Top-down on a counter** (the main one):
+```
+a modern smartphone lying flat on a warm oak kitchen counter, screen switched on but completely blank pale grey, photographed from directly overhead, soft diffused morning light from a window on the left, faint fingerprints and dust visible on the glass, car keys and a coffee cup blurred at the edge of frame, muted warm palette, generous empty counter space above the phone, editorial product photography, fine grain --ar 4:5 --style raw --no text, letters, numbers, icons, app icons, watermark, logo, people, hands, faces, clutter
+```
+
+**Angled on linen** (softer, more premium):
+```
+a smartphone resting at a slight angle on rumpled oatmeal linen, screen switched on but completely blank pale grey, shot from just above at a three-quarter angle, warm low afternoon light raking across the fabric, soft shadow under the phone, shallow depth of field, muted neutral palette, empty space in the upper third, editorial still life --ar 4:5 --style raw --no text, letters, numbers, icons, watermark, logo, people, hands, faces
+```
+
+**On a nightstand at night** (for the evening/bedtime ads):
+```
+a smartphone propped against a small lamp base on a wooden nightstand, screen switched on but completely blank pale grey, dim warm lamplight, dark quiet bedroom behind softly out of focus, shot from just above eye level, moody and calm, muted palette, empty space above --ar 4:5 --style raw --no text, letters, numbers, icons, watermark, logo, people, hands, faces
+```
+
+Keep the plate whose screen is the **flattest and least reflective** — a screen
+with a big specular highlight across it can't hold a legible thread. Four
+variations, send me the two cleanest.
+
+---
+
+## Start here — the designed look
 
 Not photographs. A designed campaign image can't fall into uncanny valley,
 because it isn't claiming to be real. Pick **one** of the two directions below
