@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500&display=block" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #14110f;
+    --ink-2: #1e1a17;
+    --parch: #f2eee7;
+    --paper: #fdfcf9;
+    --muted: #6b6560;
+    --faint: rgba(20,17,15,.42);
+    --green: #0d8a63;
+    --green-lt: #2fbb8c;
+    --mint: #7fe3bd;
+    --clay: #c25a4e;
+    --disp: "Fraunces", Georgia, serif;
+    --ui: "Bricolage Grotesque", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body { background: var(--parch); font-family: var(--ui); position: relative; }
+
+  /* paper grain over everything */
+  .grain {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .dark {
+    position: absolute; left: 0; top: 0; width: 100%; height: 838px;
+    background:
+      radial-gradient(120% 90% at 78% 18%, #241f1b 0%, rgba(36,31,27,0) 62%),
+      linear-gradient(180deg, #17130f 0%, var(--ink) 100%);
+  }
+
+  .eyebrow {
+    position: absolute; left: 64px; top: 68px; z-index: 4;
+    font-family: var(--mono); font-size: 19px; letter-spacing: .28em;
+    text-transform: uppercase; color: var(--mint);
+  }
+
+  h1 {
+    position: absolute; left: 64px; top: 306px; width: 486px; z-index: 4;
+    font-family: var(--disp); font-weight: 600; font-size: 84px; line-height: .96;
+    letter-spacing: -.035em; color: #fbf9f5;
+  }
+  h1 .em { color: var(--mint); }
+
+  .kicker {
+    position: absolute; left: 64px; top: 218px; width: 500px; z-index: 4;
+    font-size: 25px; line-height: 1.4; color: rgba(251,249,245,.55);
+  }
+
+  .below {
+    position: absolute; left: 64px; top: 916px; width: 470px; z-index: 4;
+  }
+  .below p {
+    font-size: 27px; line-height: 1.5; color: var(--muted); max-width: 440px;
+  }
+  .below p b { color: var(--ink); font-weight: 600; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 14px; margin-top: 34px;
+    background: var(--green); color: #fff; font-weight: 700; font-size: 26px;
+    padding: 22px 34px; border-radius: 4px;
+  }
+  .cta .arw { font-size: 24px; }
+  .subcta {
+    margin-top: 18px; width: 520px; font-family: var(--mono); font-size: 16px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--faint);
+  }
+
+  .tabbar {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 96px;
+    background: rgba(253,252,249,.92); border-top: 1px solid rgba(20,17,15,.09);
+    display: flex; align-items: flex-start; justify-content: space-around; padding-top: 14px;
+  }
+  .tabbar span { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+  .tabbar em {
+    display: block; width: 22px; height: 22px; border-radius: 5px;
+    border: 2.5px solid rgba(20,17,15,.24);
+  }
+  .tabbar span:first-child em { border-color: var(--green); background: rgba(13,138,99,.14); }
+  .tabbar small { font-family: var(--ui); font-size: 12px; color: var(--faint); }
+  .tabbar span:first-child small { color: var(--green); font-weight: 600; }
+  .homebar {
+    position: absolute; left: 50%; transform: translateX(-50%); bottom: 8px;
+    width: 128px; height: 5px; border-radius: 3px; background: rgba(20,17,15,.3); z-index: 4;
+  }
+
+  /* ── phone ── */
+  .phone {
+    position: absolute; left: 596px; top: 176px; width: 432px; height: 884px; z-index: 5;
+    border-radius: 54px; padding: 11px;
+    background: linear-gradient(155deg, #4a4441 0%, #17140f 38%, #322c28 70%, #100e0c 100%);
+    box-shadow:
+      0 6px 0 rgba(255,255,255,.06) inset,
+      -46px 60px 110px rgba(8,6,5,.55),
+      -14px 20px 40px rgba(8,6,5,.35);
+  }
+  .screen {
+    width: 100%; height: 100%; border-radius: 44px; overflow: hidden;
+    background: var(--parch); position: relative;
+  }
+  .statusbar {
+    height: 52px; display: flex; align-items: flex-end; justify-content: space-between;
+    padding: 0 30px 6px; font-size: 17px; font-weight: 600; color: var(--ink);
+  }
+  .bars { display: flex; align-items: center; gap: 6px; }
+  .bars i { display: block; width: 4px; background: var(--ink); border-radius: 1px; }
+  .bars i:nth-child(1) { height: 6px } .bars i:nth-child(2) { height: 9px }
+  .bars i:nth-child(3) { height: 12px } .bars i:nth-child(4) { height: 15px }
+  .batt { width: 26px; height: 13px; border: 2px solid var(--ink); border-radius: 4px; position: relative; }
+  .batt::after { content:""; position: absolute; inset: 2px; right: 9px; background: var(--ink); border-radius: 1px; }
+
+  .notch {
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 116px; height: 30px; background: #0d0b0a; border-radius: 16px; z-index: 3;
+  }
+
+  .app-head { padding: 20px 30px 0; }
+  .app-head .fam { font-family: var(--mono); font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: var(--faint); }
+  .app-head .row2 { display: flex; align-items: baseline; justify-content: space-between; margin-top: 8px; }
+  .app-head h2 { font-family: var(--disp); font-weight: 600; font-size: 34px; letter-spacing: -.02em; color: var(--ink); }
+  .lockpill {
+    font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .14em;
+    text-transform: uppercase; color: #fff; background: var(--clay);
+    padding: 6px 12px; border-radius: 3px;
+  }
+
+  .tasks { margin: 22px 22px 0; background: var(--paper); border: 1px solid rgba(20,17,15,.09); border-radius: 8px; overflow: hidden; }
+  .task { display: flex; align-items: center; gap: 15px; padding: 19px 20px; border-bottom: 1px solid rgba(20,17,15,.07); }
+  .task:last-child { border-bottom: 0; }
+  .box { width: 27px; height: 27px; border-radius: 4px; flex: 0 0 auto; border: 2px solid rgba(20,17,15,.2); }
+  .box.on { background: var(--green); border-color: var(--green); position: relative; }
+  .box.on::after {
+    content: ""; position: absolute; left: 7px; top: 11px; width: 8px; height: 14px;
+    border: 3px solid #fff; border-top: 0; border-left: 0; transform: rotate(42deg); border-radius: 1px;
+  }
+  .task .lbl { flex: 1; font-size: 20px; color: var(--ink); }
+  .task.done .lbl { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+  .task .tag { font-family: var(--mono); font-size: 13px; color: var(--faint); letter-spacing: .06em; }
+  .task .tag.ok { color: var(--green); }
+
+  .unlockbar {
+    margin: 16px 22px 0; background: #e6f7f0; border: 1px solid rgba(13,138,99,.22);
+    border-radius: 6px; padding: 16px; text-align: center;
+    font-size: 18px; font-weight: 600; color: #0a6f50;
+  }
+
+  .lockedgrid { margin: 26px 26px 0; }
+  .lockedgrid .cap { font-family: var(--mono); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; }
+  .icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .icons div {
+    aspect-ratio: 1; border-radius: 16px; background: #dcd7ce; position: relative;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+  }
+  .icons div::after {
+    content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 17px; height: 14px; border-radius: 3px; background: #a9a29a;
+    box-shadow: 0 -8px 0 -3px transparent, 0 0 0 0 transparent;
+  }
+  .icons div::before {
+    content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-100%);
+    margin-top: -5px; width: 11px; height: 11px; border: 3px solid #a9a29a;
+    border-bottom: 0; border-radius: 7px 7px 0 0;
+  }
+</style>
+</head>
+<body>
+  <div class="dark"></div>
+
+  <div class="eyebrow">Earnit &nbsp;/&nbsp; screen time, earned</div>
+
+  <p class="kicker">Not a timer. Not a tracker.</p>
+  <h1>Their phone unlocks when the chores <span class="em">do.</span></h1>
+
+  <div class="below">
+    <p>Assign real tasks. Your kid proves each one with a photo or a timer. <b>Apps stay locked until the work is real.</b></p>
+    <div class="cta">Start your free week <span class="arw">&#8594;</span></div>
+    <div class="subcta">Free week &middot; then $9.99/mo &middot; cancel anytime</div>
+  </div>
+
+  <div class="phone">
+    <div class="screen">
+      <div class="notch"></div>
+      <div class="statusbar">
+        <span>9:41</span>
+        <span class="bars"><i></i><i></i><i></i><i></i><span class="batt"></span></span>
+      </div>
+      <div class="app-head">
+        <div class="fam">Slagle family</div>
+        <div class="row2">
+          <h2>Mason&rsquo;s phone</h2>
+          <span class="lockpill">Locked</span>
+        </div>
+      </div>
+      <div class="tasks">
+        <div class="task done"><span class="box on"></span><span class="lbl">Make your bed</span><span class="tag ok">photo &#10003;</span></div>
+        <div class="task done"><span class="box on"></span><span class="lbl">20 min of reading</span><span class="tag ok">timer &#10003;</span></div>
+        <div class="task"><span class="box"></span><span class="lbl">Empty the dishwasher</span><span class="tag">photo</span></div>
+      </div>
+      <div class="unlockbar">1 task left before apps unlock</div>
+      <div class="lockedgrid">
+        <div class="cap">Locked until then</div>
+        <div class="icons"><div></div><div></div><div></div><div></div></div>
+      </div>
+      <div class="tabbar">
+        <span><em></em><small>Tasks</small></span>
+        <span><em></em><small>Approvals</small></span>
+        <span><em></em><small>Family</small></span>
+        <span><em></em><small>Settings</small></span>
+      </div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>
