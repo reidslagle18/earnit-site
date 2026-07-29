@@ -3,7 +3,7 @@ import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://earnit-site.vercel.app"),
+  metadataBase: new URL("https://earnit.mobile"),
   title: "EarnIt — Phone access earned, not given",
   description:
     "EarnIt locks your child's screen time behind real-world tasks. Kids prove chores with photos and timers, AI verifies, parents approve. First week free.",
