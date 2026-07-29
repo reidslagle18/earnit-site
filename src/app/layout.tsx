@@ -4,13 +4,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://earnit.mobile"),
-  title: "EarnIt — Phone access earned, not given",
+  title: "EarnIt — Screen time earned, not given",
   description:
-    "EarnIt locks your child's screen time behind real-world tasks. Kids prove chores with photos and timers, AI verifies, parents approve. First week free.",
+    "You're not competing with laziness, you're competing with a phone. EarnIt keeps the games locked until the chores are actually done, proved with a photo. First week free.",
   openGraph: {
-    title: "EarnIt — Phone access earned, not given",
+    title: "EarnIt — Screen time earned, not given",
     description:
-      "Screen time your kids earn with real chores, verified with photo proof. First week free.",
+      "Screen time your kid earns with real chores, proved with a photo. First week free.",
     siteName: "EarnIt",
     type: "website",
   },
