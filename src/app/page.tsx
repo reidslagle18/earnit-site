@@ -11,16 +11,18 @@ const SIGNUP_URL =
 function Cta({
   placement,
   large,
+  onEmerald,
   label = "Start your free week",
 }: {
   placement: string;
   large?: boolean;
+  onEmerald?: boolean;
   label?: string;
 }) {
   return (
     <a
       href={SIGNUP_URL}
-      className={`btn btn-primary${large ? " btn-lg" : ""}`}
+      className={`btn ${onEmerald ? "btn-onem" : "btn-primary"}${large ? " btn-lg" : ""}`}
       onClick={(e) => {
         e.preventDefault();
         trackSignupClick(SIGNUP_URL, placement);
@@ -62,57 +64,42 @@ export default function Home() {
           <div className="hero-grid">
             <div>
               <h1>
-                Phone access earned, <em>not given.</em>
+                Screen time earned, <em>not given.</em>
               </h1>
               <p className="hero-sub">
-                Tired of screen-time battles? EarnIt locks your child&rsquo;s apps until
-                real-world tasks are done — proven with photos and timers, checked by AI,
-                approved by you. No nagging. No timer to police.
+                You&rsquo;re not competing with laziness. You&rsquo;re competing with a phone.
+                EarnIt keeps the games locked until the chores are actually done, proved with
+                a photo. Then it only takes asking once.
               </p>
               <div className="hero-cta">
                 <Cta placement="hero" large />
                 <p className="cta-note">
-                  <strong>First 7 days free.</strong> We&rsquo;ll remind you before your trial
-                  ends · Cancel in two taps
+                  <strong>First week free.</strong> We remind you the day before it ends.
+                  Cancel in two taps.
                 </p>
               </div>
             </div>
-
-            <div className="mock" aria-hidden>
-              <div className="mock-header">
-                <span className="mock-title">Mason&rsquo;s phone</span>
-                <span className="mock-status">Locked</span>
-              </div>
-              <div className="mock-task done">
-                <span className="mock-check done">✓</span>
-                <span className="label">Make your bed</span>
-                <span className="tag">photo ✓</span>
-              </div>
-              <div className="mock-task done">
-                <span className="mock-check done">✓</span>
-                <span className="label">20 min of reading</span>
-                <span className="tag">timer ✓</span>
-              </div>
-              <div className="mock-task">
-                <span className="mock-check" />
-                <span className="label">Empty the dishwasher</span>
-                <span className="tag">photo</span>
-              </div>
-              <div className="mock-footer">1 task left → apps unlock</div>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="hero-shot"
+              src="/hero-thread.png"
+              width={1080}
+              height={1350}
+              alt="An iPhone on a kitchen counter showing four unanswered texts asking a child to take the trash out."
+            />
           </div>
         </section>
       </div>
 
-      {/* ── Problem band ── */}
-      <div className="stat-band">
+      {/* ── The problem ── */}
+      <div className="field">
         <div className="wrap">
           <p className="big">
-            Kids average <em>5½ hours of screen time a day</em> before they&rsquo;re even
-            teenagers — and 8½ by high school. Arguing about it doesn&rsquo;t work.{" "}
+            Kids average five and a half hours of screen time a day before they&rsquo;re even
+            teenagers, and eight and a half by high school. Arguing about it doesn&rsquo;t work.{" "}
             <em>Incentives do.</em>
           </p>
-          <p className="src">Common Sense Media census of media use, ages 8–18</p>
+          <p className="src">Common Sense Media census of media use, ages 8 to 18.</p>
         </div>
       </div>
 
@@ -121,31 +108,31 @@ export default function Home() {
         <section id="how">
           <div className="section-head">
             <span className="eyebrow">How it works</span>
-            <h2>Three steps to a calmer house</h2>
+            <h2>Three steps, about five minutes to set up.</h2>
           </div>
           <div className="steps">
             <div className="step">
-              <span className="num">Step one</span>
-              <h3>You assign real tasks</h3>
+              <span className="n">Step one</span>
+              <h3>You assign real work</h3>
               <p>
-                Chores, homework, reading, practice — pick from templates or write your own.
-                Each task is worth screen time.
+                Chores, homework, reading, practice. Pick from templates or write your own,
+                and set what each one is worth.
               </p>
             </div>
             <div className="step">
-              <span className="num">Step two</span>
-              <h3>Kids prove it&rsquo;s done</h3>
+              <span className="n">Step two</span>
+              <h3>Your kid proves it</h3>
               <p>
-                A photo of the clean room. A timer for the reading. AI checks the evidence
-                instantly, and you keep final say with one-tap override.
+                A photo of the clean room. A timer for the reading. AI checks the evidence in
+                seconds and you keep the final say with one tap.
               </p>
             </div>
             <div className="step">
-              <span className="num">Step three</span>
-              <h3>Screen time unlocks</h3>
+              <span className="n">Step three</span>
+              <h3>The apps open</h3>
               <p>
-                Apps stay locked until tasks are approved — then unlock automatically.
-                Emergency calls and medical apps always work, locked or not.
+                Games and social apps unlock the moment you approve. No timer for you to
+                police, no nightly negotiation.
               </p>
             </div>
           </div>
@@ -157,52 +144,53 @@ export default function Home() {
         <section id="features">
           <div className="section-head">
             <span className="eyebrow">What&rsquo;s inside</span>
-            <h2>Built for responsibility, not surveillance</h2>
+            <h2>Responsibility, not surveillance.</h2>
             <p>
-              EarnIt doesn&rsquo;t read messages or track location. It does one thing well:
-              make screen time something kids earn.
+              EarnIt never reads messages and never tracks location. It does one thing:
+              makes screen time something your kid earns.
             </p>
           </div>
           <div className="features">
             <div className="feature">
               <h3>Real app locking</h3>
               <p>
-                Built on Apple&rsquo;s own Family Controls — the same system behind Screen
-                Time. Not an honor-system checklist.
+                Built on Apple&rsquo;s Family Controls, the same system behind Screen Time. iOS
+                enforces it, so it isn&rsquo;t an honour-system checklist.
               </p>
             </div>
             <div className="feature">
-              <h3>Photo &amp; timer proof</h3>
+              <h3>Photo and timer proof</h3>
               <p>
-                Kids snap the finished chore or run a focus timer. Evidence ends the
+                Your kid snaps the finished chore or runs a focus timer. Evidence ends the
                 &ldquo;I already did it&rdquo; debate for good.
               </p>
             </div>
             <div className="feature">
-              <h3>AI auto-verify</h3>
+              <h3>AI checks it first</h3>
               <p>
-                AI reviews each submission in seconds so you&rsquo;re not photo-auditing
-                bedrooms all day. Override anything with one tap.
+                Submissions get reviewed in seconds, so you&rsquo;re not photo-auditing bedrooms
+                all evening. Override anything with one tap.
               </p>
             </div>
             <div className="feature">
               <h3>One calm dashboard</h3>
               <p>
-                Every task, submission, and approval in one place. Stay informed without
-                hovering.
+                Every task, submission and approval in one place. Stay informed without
+                hovering over anybody.
               </p>
             </div>
             <div className="feature">
               <h3>Emergency-safe, always</h3>
               <p className="safe">
-                Calls, emergency services, and medical apps are never locked. Ever.
+                Calls, texts to you and emergency services are never locked. Not while tasks
+                are pending. Not ever.
               </p>
             </div>
             <div className="feature">
               <h3>Kid-proof by design</h3>
               <p>
-                Deleting the app, toggling settings, or restarting the phone doesn&rsquo;t
-                break the lock. Parents hold the key.
+                Deleting the app, changing settings or restarting the phone doesn&rsquo;t lift
+                the lock. Parents hold the key.
               </p>
             </div>
           </div>
@@ -214,42 +202,43 @@ export default function Home() {
         <section id="compare">
           <div className="section-head">
             <span className="eyebrow">Why EarnIt</span>
-            <h2>Timers police. Trackers spy. EarnIt motivates.</h2>
+            <h2>Timers police. Trackers spy. <em>EarnIt motivates.</em></h2>
           </div>
           <div className="compare">
             <table>
+              <colgroup><col /><col className="usc" /><col /><col /></colgroup>
               <thead>
                 <tr>
                   <th></th>
-                  <th className="earnit">EarnIt</th>
+                  <th className="us">EarnIt</th>
                   <th>Screen-time timers</th>
-                  <th>Surveillance apps</th>
+                  <th>Tracking apps</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Kids motivated to do chores</td>
-                  <td className="yes">Yes — that&rsquo;s the point</td>
+                  <td className="q">Kids motivated to do chores</td>
+                  <td className="us">By design</td>
                   <td className="no">No</td>
                   <td className="no">No</td>
                 </tr>
                 <tr>
-                  <td>Verified with real evidence</td>
-                  <td className="yes">Photos, timers, AI review</td>
-                  <td className="no">Honor system</td>
-                  <td className="no">—</td>
+                  <td className="q">Work verified with evidence</td>
+                  <td className="us">Photo and timer</td>
+                  <td className="no">Honour system</td>
+                  <td className="no">No</td>
                 </tr>
                 <tr>
-                  <td>Reads messages / tracks location</td>
-                  <td className="yes">Never</td>
+                  <td className="q">Reads messages, tracks location</td>
+                  <td className="us">Never</td>
                   <td className="no">Sometimes</td>
-                  <td className="no">That&rsquo;s all it does</td>
+                  <td className="no">That&rsquo;s the point</td>
                 </tr>
                 <tr>
-                  <td>Ends the daily argument</td>
-                  <td className="yes">Rules are automatic</td>
-                  <td className="no">You&rsquo;re the timer cop</td>
-                  <td className="no">Creates new ones</td>
+                  <td className="q">Ends the nightly argument</td>
+                  <td className="us">Rules are automatic</td>
+                  <td className="no">You enforce it</td>
+                  <td className="no">Starts new ones</td>
                 </tr>
               </tbody>
             </table>
@@ -264,9 +253,8 @@ export default function Home() {
             <span className="eyebrow">Pricing</span>
             <h2>Your first week is free.</h2>
             <p>
-              Pick a plan and try everything free for 7 days. You won&rsquo;t be charged
-              until the trial ends — we&rsquo;ll remind you the day before — and canceling
-              takes two taps.
+              Pick a plan and try everything for seven days. You won&rsquo;t be charged until
+              the trial ends, we remind you the day before, and cancelling takes two taps.
             </p>
           </div>
           <div className="plans">
@@ -276,30 +264,30 @@ export default function Home() {
                 $9.99 <span>/ month after your free week</span>
               </div>
               <ul>
-                <li>Unlimited kids &amp; tasks</li>
+                <li>Unlimited kids and tasks</li>
                 <li>Real app locking</li>
-                <li>Photo &amp; timer proof</li>
-                <li>AI auto-verify</li>
+                <li>Photo and timer proof</li>
+                <li>AI verification</li>
                 <li>Parent dashboard</li>
               </ul>
               <Cta placement="pricing_monthly" label="Start my free week" />
-              <p className="trial-note">7 days free, then $9.99/month · cancel anytime</p>
+              <p className="trial-note">7 days free, then $9.99/month. Cancel anytime.</p>
             </div>
             <div className="plan featured">
               <span className="name">Annual</span>
               <div className="price">
                 $89.99 <span>/ year after your free week</span>
               </div>
-              <div className="anchor">About 25¢ a day — save 25% vs monthly</div>
+              <div className="anchor">About 25¢ a day. Save 25% on monthly.</div>
               <ul>
-                <li>Unlimited kids &amp; tasks</li>
+                <li>Unlimited kids and tasks</li>
                 <li>Real app locking</li>
-                <li>Photo &amp; timer proof</li>
-                <li>AI auto-verify</li>
+                <li>Photo and timer proof</li>
+                <li>AI verification</li>
                 <li>Parent dashboard</li>
               </ul>
               <Cta placement="pricing_annual" label="Start my free week" />
-              <p className="trial-note">7 days free, then $89.99/year · cancel anytime</p>
+              <p className="trial-note">7 days free, then $89.99/year. Cancel anytime.</p>
             </div>
           </div>
         </section>
@@ -310,80 +298,70 @@ export default function Home() {
         <section id="faq">
           <div className="section-head">
             <span className="eyebrow">Questions</span>
-            <h2>Fair questions, straight answers</h2>
+            <h2>Fair questions, straight answers.</h2>
           </div>
           <div className="faq">
             <details>
-              <summary>Is this spyware?</summary>
+              <summary>Is this spying on my kid?</summary>
               <p>
-                No. EarnIt doesn&rsquo;t read messages, log browsing, or track location. It
-                locks apps until tasks are done — that&rsquo;s it. Kids see exactly what&rsquo;s
-                locked and exactly how to earn it back, which is why they don&rsquo;t hate it.
+                No. EarnIt doesn&rsquo;t read messages, log browsing or track location. It locks
+                games and social apps until tasks are done, and that&rsquo;s all. Your kid can see
+                exactly what&rsquo;s locked and exactly how to earn it back, which is why they
+                don&rsquo;t hate it.
               </p>
             </details>
             <details>
-              <summary>What if my kid has an emergency?</summary>
+              <summary>What happens in an emergency?</summary>
               <p>
-                Phone calls, emergency services, and medical apps are never locked, no matter
-                what. Parents can also set an emergency unlock code that opens everything
+                Phone calls, texts to you and emergency services are never locked, no matter
+                what. You can also set an emergency unlock code that opens everything
                 instantly.
               </p>
             </details>
             <details>
-              <summary>How does the locking actually work?</summary>
+              <summary>Can my kid just delete it?</summary>
               <p>
-                On the kid&rsquo;s iPhone, EarnIt uses Apple&rsquo;s Family Controls framework —
-                the same system that powers Screen Time. That means the lock is enforced by
-                iOS itself, not by an app your kid can force-quit.
-              </p>
-            </details>
-            <details>
-              <summary>Can my kid cheat it?</summary>
-              <p>
-                Deleting the app, changing settings, or restarting the phone doesn&rsquo;t lift
-                the lock. And because tasks need photo or timer evidence reviewed by AI (and
-                you), &ldquo;yeah I did it&rdquo; doesn&rsquo;t unlock anything.
+                No. Deleting the app, digging through settings or restarting the phone
+                doesn&rsquo;t lift the lock. EarnIt runs on Apple&rsquo;s Family Controls, so iOS
+                enforces it rather than an app your kid can force-quit.
               </p>
             </details>
             <details>
               <summary>What does it cost?</summary>
               <p>
-                $9.99/month or $89.99/year — about 25¢ a day — and every plan starts with
-                a full week free. You won&rsquo;t be charged until the trial ends, we
-                remind you the day before, and you can cancel in two taps from your
-                subscription settings.
+                $9.99 a month or $89.99 a year, about 25¢ a day, and every plan starts with a
+                full week free. You won&rsquo;t be charged until the trial ends, we remind you the
+                day before, and you can cancel in two taps from your subscription settings.
               </p>
             </details>
             <details>
               <summary>What happens after the free week?</summary>
               <p>
-                If EarnIt is working for your family, do nothing — your plan starts
-                automatically. If it&rsquo;s not, cancel before the week is up and you pay
-                nothing. We send a reminder the day before your trial ends so there are no
-                surprise charges.
+                If EarnIt is working, do nothing and your plan starts automatically. If it
+                isn&rsquo;t, cancel before the week is up and you pay nothing.
               </p>
             </details>
             <details>
               <summary>What devices do I need?</summary>
               <p>
-                Kids need an iPhone for app locking. Parents manage everything from the web
-                dashboard or the iPhone app — assign tasks, review proof, and approve from
-                anywhere.
+                Your kid needs an iPhone for app locking. You can manage everything from the
+                iPhone app or the web dashboard, so you can assign tasks and approve photos
+                from anywhere.
               </p>
             </details>
           </div>
         </section>
       </div>
 
-      {/* ── Final CTA ── */}
-      <div className="stat-band">
-        <div className="wrap final" style={{ padding: "96px 24px" }}>
-          <h2 style={{ color: "var(--bg)" }}>
-            Tonight&rsquo;s chores could be tonight&rsquo;s <em style={{ color: "#34d399" }}>screen time.</em>
+      {/* ── Closing ── */}
+      <div className="field">
+        <div className="wrap closing">
+          <h2>
+            Tonight&rsquo;s chores could be tonight&rsquo;s <em>screen time.</em>
           </h2>
-          <Cta placement="final" large />
-          <p className="cta-note" style={{ color: "rgba(244,241,235,0.6)" }}>
-            First week free · Cancel anytime · 5-minute setup
+          <Cta placement="final" large onEmerald />
+          <p className="cta-note">
+            <strong>First week free.</strong> Cancel anytime. Five-minute setup.
           </p>
         </div>
       </div>
@@ -399,7 +377,6 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* ── Sticky mobile CTA ── */}
       <div className={`sticky-cta${stickyVisible ? " visible" : ""}`}>
         <Cta placement="sticky_mobile" />
       </div>
