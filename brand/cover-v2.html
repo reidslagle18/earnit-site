@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&display=block" rel="stylesheet" />
+<style>
+  /* Facebook cover 1640x924. Everything lives in the centre band because
+     Facebook crops the left and right edges hard on mobile. */
+  :root { --paper: #f2f1ec; --em: #0a5240; --muted: #5c655f; --faint: rgba(22,32,28,.45);
+    --disp: "Frank Ruhl Libre", Georgia, serif; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1640px; height: 924px; overflow: hidden; }
+  body {
+    background: var(--paper); font-family: var(--disp); position: relative;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .grain {
+    position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: .04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .mark { font-weight: 700; font-size: 40px; letter-spacing: -.012em; color: var(--em); }
+  .mark span { opacity: .5; }
+  h1 {
+    margin-top: 40px; font-weight: 900; font-size: 106px; line-height: 1.04;
+    letter-spacing: -.015em; color: var(--em); text-align: center;
+  }
+  .rule { margin-top: 44px; width: 132px; height: 3px; background: rgba(10,82,64,.3); }
+  .sub { margin-top: 40px; font-size: 32px; color: var(--muted); text-align: center; }
+  .fine { margin-top: 18px; font-size: 25px; color: var(--faint); }
+</style>
+</head>
+<body>
+  <div class="mark">Earn<span>It</span></div>
+  <h1>Screen time earned, not given.</h1>
+  <div class="rule"></div>
+  <p class="sub">Chores, homework and reading come first. Proved with a photo.</p>
+  <p class="fine">First week free &middot; then $9.99/month</p>
+  <div class="grain"></div>
+</body>
+</html>
